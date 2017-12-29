@@ -1,7 +1,5 @@
 ;;;; sbcl --script setsvg.lisp > foo.svg
-
-; Milestone 0: print an svg
-; Milestone 1: print a circle with a random color
+;;;; Creates an SVG with a randomly-colored circle.
 
 ; Initialize the global random state.
 ; https://stackoverflow.com/questions/4034042/random-in-common-lisp-not-so-random
