@@ -38,16 +38,14 @@
   (randselect *colors*)
 )
 
-(defun randcircle ()
+(defun svg (body)
   (format t "~d" *begin-svg*)
-  (format t "~d" (ellipse (randcolor)))
+  (format t "~d" body)
   (format t "~d" *end-svg*)  
+)
+
+(defun randcircle ()
+  (svg (ellipse (randcolor)))
   )
 
 (randcircle)
-
-; (print (ellipse (randcolor)))
-
-; (format t "~d" *begin-svg*)
-; (format t "~d" *oval*)
-; (format t "~d" *end-svg*)
