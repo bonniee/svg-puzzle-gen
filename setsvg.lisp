@@ -46,6 +46,6 @@
 
 (defun randcircle ()
   (svg (ellipse (randcolor)))
-  )
+)
 
 (randcircle)
