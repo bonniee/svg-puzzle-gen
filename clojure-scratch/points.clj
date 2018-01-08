@@ -30,10 +30,9 @@
     (format ellipse-string cx cy rx ry color))
 )
 
-(defn point [color x y]
+(defn point [x y]
   (let [
-    rx 10
-    ry 10
+    radius 3
     ellipse-string "<ellipse
       cx=\"%d\"
       cy=\"%d\"
@@ -41,10 +40,10 @@
       ry=\"%d\"
       stroke=\"#fc8d62\"
       stroke-width=\"5\"
-      fill=\"#%s\"
     />"]
-    (format ellipse-string x y rx ry color))
+    (format ellipse-string x y radius radius))
 )
+
 
 (defn rand-color []
   (let [colors ["66c2a5" "fc8d62" "8da0cb"]]
@@ -56,12 +55,17 @@
   (println body)
   (println svg-suffix))
 
-
-; ;(let [height 200 width 200]
-;  (svg (ellipse (rand-color) height width) height width)
-; ;  )
-
 (def max-coord 1000)
+(def grid 100)
 (def point-count 10)
 
-(svg (repeatedly point-count #(point (rand-color) (rand-int max-coord) (rand-int max-coord))) max-coord max-coord)
+(svg
+ (apply str 
+(for [x (range 10) y (range 10)] 
+  (let [xcoord (+ 50 (* 100 x))
+        ycoord (+ 50 (* 100 y))
+    ] (point xcoord ycoord)))
+
+) max-coord max-coord)
+
+; (svg (repeatedly point-count #(point (rand-color) (rand-int max-coord) (rand-int max-coord))) max-coord max-coord)
