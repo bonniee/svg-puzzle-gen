@@ -44,13 +44,20 @@
     (format ellipse-string x y radius radius))
 )
 
-(defn puzzlepath [x1 y1 x2 y2]
+(defn x [point] (nth point 0))
+(defn y [point] (nth point 1))
+
+(defn puzzlepath [point1 point2]
   (let [
+    x1 (x point1)
+    y1 (y point1)
+    x2 (x point2)
+    y2 (y point2)
     dx (- x1 x2)
     dy (- y1 y2)
     line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
     angle (if (= dx 0)
-      90.0
+      (if (< dy 0) 90.0 270.0)
       (* (/ 180 Math/PI) (Math/atan (/ dy dx))))
     path-string "<path 
         d=\"M0,21 C30,28 45,28 45,21 C45,17 34,16 35,11 C36,6 42.5,1 50,1 C57.5,1 64,6 65,11 C66,16 55,20 55,21 C55,24 70,24 100,21\"
@@ -68,25 +75,32 @@
     (nth colors (rand-int (count colors)))
     ))
 
-(defn svg [body width height]
-  (println (svg-prefix width height))
+(def max-coord 1000)
+(def N 6)
+
+(defn svg [body]
+  (println (svg-prefix max-coord max-coord))
   (println (apply str body))
   (println svg-suffix))
 
-(def max-coord 1000)
-(def grid 100)
-(def point-count 10)
-
-
 (def coords
-  (vec (for [x (range 10)]
-    (vec (for [y (range 10)] 
+  (vec (for [x (range N)]
+    (vec (for [y (range N)] 
       (let [xcoord (+ 50 (* 100 x))
             ycoord (+ 50 (* 100 y))
             xjitter (rand-int 10)
             yjitter (rand-int 10)
-        ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))))
+        ] (vec (list (+ xcoord 0) (+ ycoord 0)))))))))
 
-(println coords)
+(svg 
+(flatten (for [i (range N) j (range N)]
+  (let [point1 (nth (nth coords i) j)
+       path-south (if (< (+ 1 j) N) (puzzlepath point1  (nth (nth coords i) (+ 1 j))))
+       path-east (if (< (+ 1 i) N) (puzzlepath point1 (nth (nth coords (+ 1 i)) j)))
+  ]
+    (filter (complement nil?) (list path-south path-east))
+  ))))
 
-; (svg (list (puzzlepath 50 50 150 50) (puzzlepath 50 50 50 150)) max-coord max-coord)
+; (println coords)
+
+; (svg (list (puzzlepath [50 50] [150 50]) (puzzlepath [50 50] [50 150])))
