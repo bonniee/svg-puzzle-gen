@@ -1,3 +1,5 @@
+;;; clojure -i scratch.clj
+
 (ns svgs)
 
 (defn svg-prefix [width height]
@@ -33,4 +35,4 @@
   (println body)
   (println svg-suffix))
 
-(println (svg (ellipse (rand-color)) 200 200))
+(svg (ellipse (rand-color)) 200 200)
