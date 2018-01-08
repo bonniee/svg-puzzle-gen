@@ -53,12 +53,10 @@
     y1 (y point1)
     x2 (x point2)
     y2 (y point2)
-    dx (- x1 x2)
-    dy (- y1 y2)
+    dx (- x2 x1)
+    dy (- y2 y1)
     line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
-    angle (if (= dx 0)
-      (if (< dy 0) 90.0 270.0)
-      (* (/ 180 Math/PI) (Math/atan (/ dy dx))))
+    angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
     path-string "<path 
         d=\"M0,21 C30,28 45,28 45,21 C45,17 34,16 35,11 C36,6 42.5,1 50,1 C57.5,1 64,6 65,11 C66,16 55,20 55,21 C55,24 70,24 100,21\"
         id=\"path-%d-%d-%d-%d\"
@@ -88,9 +86,9 @@
     (vec (for [y (range N)] 
       (let [xcoord (+ 50 (* 100 x))
             ycoord (+ 50 (* 100 y))
-            xjitter (rand-int 10)
-            yjitter (rand-int 10)
-        ] (vec (list (+ xcoord 0) (+ ycoord 0)))))))))
+            xjitter (rand-int 20)
+            yjitter (rand-int 20)
+        ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))))
 
 (svg 
 (flatten (for [i (range N) j (range N)]
@@ -103,4 +101,14 @@
 
 ; (println coords)
 
-; (svg (list (puzzlepath [50 50] [150 50]) (puzzlepath [50 50] [50 150])))
+; (svg (list 
+;   (puzzlepath [50 50] [150 50])
+;   (puzzlepath [50 50] [50 150])
+;   (puzzlepath [50 50] [150 150])
+;   (puzzlepath [150 150] [50 50])
+;   ))
+
+
+
+
+
