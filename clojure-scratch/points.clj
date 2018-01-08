@@ -44,6 +44,24 @@
     (format ellipse-string x y radius radius))
 )
 
+(defn puzzlepath [x1 y1 x2 y2]
+  (let [
+    dx (- x1 x2)
+    dy (- y1 y2)
+    line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
+    angle (if (= dx 0)
+      90.0
+      (* (/ 180 Math/PI) (Math/atan (/ dy dx))))
+    path-string "<path 
+        d=\"M0,21 C30,28 45,28 45,21 C45,17 34,16 35,11 C36,6 42.5,1 50,1 C57.5,1 64,6 65,11 C66,16 55,20 55,21 C55,24 70,24 100,21\"
+        id=\"path-%d-%d-%d-%d\"
+        stroke=\"#979797\"
+        fill=\"none\"
+        transform=\"translate(%d %d) rotate(%f 0 21) scale(%f 1)\">
+      </path>"
+    ]
+    (format path-string x1 y1 x2 y2 x1 (- y1 21) angle (/ line-length 100)))
+)
 
 (defn rand-color []
   (let [colors ["66c2a5" "fc8d62" "8da0cb"]]
@@ -52,20 +70,20 @@
 
 (defn svg [body width height]
   (println (svg-prefix width height))
-  (println body)
+  (println (apply str body))
   (println svg-suffix))
 
 (def max-coord 1000)
 (def grid 100)
 (def point-count 10)
 
-(svg
- (apply str 
-(for [x (range 10) y (range 10)] 
-  (let [xcoord (+ 50 (* 100 x))
-        ycoord (+ 50 (* 100 y))
-    ] (point xcoord ycoord)))
+; (svg
+;  (apply str 
+; (for [x (range 10) y (range 10)] 
+;   (let [xcoord (+ 50 (* 100 x))
+;         ycoord (+ 50 (* 100 y))
+;     ] (point xcoord ycoord)))
 
-) max-coord max-coord)
+; ) 
 
-; (svg (repeatedly point-count #(point (rand-color) (rand-int max-coord) (rand-int max-coord))) max-coord max-coord)
+(svg (list (puzzlepath 50 50 150 50) (puzzlepath 50 50 50 150)) max-coord max-coord)

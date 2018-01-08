@@ -15,7 +15,7 @@
   id="Path"
   stroke="#979797"
   fill="none"
-  transform="translate(50 50) rotate(90 0 21)">
+  transform="translate(50 50) rotate(90 0 21) scale(2 1)">
 </path>
 
 <path 
@@ -23,7 +23,7 @@
   id="Path"
   stroke="#979797"
   fill="none"
-  transform="translate(150 150) rotate(180 0 21)">
+  transform="translate(150 250) rotate(180 0 21)">
 </path>
 
 <path 
@@ -31,7 +31,7 @@
   id="Path"
   stroke="#979797"
   fill="none"
-  transform="translate(150 150) rotate(270 0 21)">
+  transform="translate(150 250) rotate(270 0 21) scale(2 1)">
 </path>
 
 
