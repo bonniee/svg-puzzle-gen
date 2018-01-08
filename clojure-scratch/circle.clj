@@ -1,4 +1,4 @@
-;;; clojure -i scratch.clj
+;;; clojure -i circle.clj > circle.svg
 
 (ns svgs)
 
@@ -12,17 +12,22 @@
 
 (def svg-suffix "</svg>")
 
-(defn ellipse [color]
-  (let [ellipse-string "<ellipse
-      cx=\"250.0\"
-      cy=\"250.0\"
-      rx=\"100.0\"
-      ry=\"100.0\"
+(defn ellipse [color width height]
+  (let [
+    cx (/ width 2.0)
+    cy (/ height 2.0)
+    rx (* 0.7 (/ width 2.0))
+    ry (* 0.7 (/ height 2.0))
+    ellipse-string "<ellipse
+      cx=\"%.1f\"
+      cy=\"%.1f\"
+      rx=\"%.1f\"
+      ry=\"%.1f\"
       stroke=\"#fc8d62\"
       stroke-width=\"5\"
       fill=\"#%s\"
     />"]
-    (format ellipse-string color))
+    (format ellipse-string cx cy rx ry color))
 )
 
 (defn rand-color []
@@ -35,4 +40,7 @@
   (println body)
   (println svg-suffix))
 
-(svg (ellipse (rand-color)) 200 200)
+
+(let [height 200 width 200]
+  (svg (ellipse (rand-color) height width) height width)
+  )

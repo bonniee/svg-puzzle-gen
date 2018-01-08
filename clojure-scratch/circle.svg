@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="200" height="200">
+<ellipse
+      cx="100.0"
+      cy="100.0"
+      rx="70.0"
+      ry="70.0"
+      stroke="#fc8d62"
+      stroke-width="5"
+      fill="#66c2a5"
+    />
+</svg>
