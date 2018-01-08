@@ -77,13 +77,16 @@
 (def grid 100)
 (def point-count 10)
 
-; (svg
-;  (apply str 
-; (for [x (range 10) y (range 10)] 
-;   (let [xcoord (+ 50 (* 100 x))
-;         ycoord (+ 50 (* 100 y))
-;     ] (point xcoord ycoord)))
 
-; ) 
+(def coords
+  (vec (for [x (range 10)]
+    (vec (for [y (range 10)] 
+      (let [xcoord (+ 50 (* 100 x))
+            ycoord (+ 50 (* 100 y))
+            xjitter (rand-int 10)
+            yjitter (rand-int 10)
+        ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))))
 
-(svg (list (puzzlepath 50 50 150 50) (puzzlepath 50 50 50 150)) max-coord max-coord)
+(println coords)
+
+; (svg (list (puzzlepath 50 50 150 50) (puzzlepath 50 50 50 150)) max-coord max-coord)
