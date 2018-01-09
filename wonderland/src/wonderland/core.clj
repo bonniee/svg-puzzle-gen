@@ -2,10 +2,11 @@
   (:require [voronoi-diagram.core :as voronoi]))
 
 (def max-coord 500)
+(def N 5)
 
 ; Convenience extractors for points of the form [x y]
-(defn x [point] (nth point 0))
-(defn y [point] (nth point 1))
+(defn x [point] (double (nth point 0)))
+(defn y [point] (double (nth point 1)))
 
 ; Prefix for SVG file
 (defn svg-prefix [width height]
@@ -20,23 +21,32 @@
 (def svg-suffix "</svg>")
 
 ; Draw the body of a point for SVG output
-(defn point [x y]
+; Expects a coord of form [x y]
+(defn point [coord]
   (let [
-    radius 3
+    radius 1
     ellipse-string "<ellipse
-      cx=\"%d\"
-      cy=\"%d\"
+      cx=\"%.2f\"
+      cy=\"%.2f\"
       rx=\"%d\"
       ry=\"%d\"
       stroke=\"#fc8d62\"
-      stroke-width=\"5\"
+      stroke-width=\"4\"
     />"]
-    (format ellipse-string x y radius radius))
+    (format ellipse-string (x coord) (y coord) radius radius))
 )
+
+(defn polygon [points]
+  (let [
+    polygon-string "<polygon fill=\"none\" stroke=\"black\" stroke-width=\"2\" points=\"%s\"/>"
+    points-string (apply str (map (fn [p] (format "%.2f,%.2f " (x p) (y p))) points))
+    ]
+    (format polygon-string points-string))
+  )
 
 (defn line [p1 p2]
   (let [
-    line-string "<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\"
+    line-string "<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\"
       stroke-width=\"2\" stroke=\"black\"/>"
       x1 (x p1)
       y1 (y p1)
@@ -47,18 +57,55 @@
       )
   )
 
+(defn edgeline [edge]
+  (line (nth edge 0) (nth edge 1)))
+
+(defn puzzlepath [point1 point2]
+  (let [
+    x1 (x point1)
+    y1 (y point1)
+    x2 (x point2)
+    y2 (y point2)
+    dx (- x2 x1)
+    dy (- y2 y1)
+    yscale (- 1 (* 2 (rand-int 2))) ; Until I find a non-destructive flip transform, this will have to wait.
+    line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
+    angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
+    pathid (format "path-%d-%d-%d-%d" x1 y1 x2 y2)
+    path-string "<path 
+        d=\"M0,21 C30,28 45,28 45,21 C45,17 34,16 35,11 C36,6 42.5,1 50,1 C57.5,1 64,6 65,11 C66,16 55,20 55,21 C55,24 70,24 100,21\"
+        id=\"%s\"
+        stroke=\"#979797\"
+        fill=\"none\"
+        transform=\"translate(%d %d) rotate(%f 0 21) scale(%f 1)\">
+      </path>"
+    ]
+    (format path-string pathid x1 (- y1 21) angle (/ line-length 100)))
+)
+
+; Sets up coordinates for puzzle piece anchor points
+(def coords
+  (vec (for [x (range N) y (range N)]
+    (let [xcoord (+ 50 (* 100 x))
+          ycoord (+ 50 (* 100 y))
+          jitter 10
+          xjitter (rand-int jitter)
+          yjitter (rand-int jitter)
+      ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
+
 ; Create an SVG, suitable for file output.
 (defn svg [body]
   (println (svg-prefix max-coord max-coord))
   (println (apply str body))
   (println svg-suffix))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
-
 (defn -main
   []
-  (svg (line [0 0] [100 100]))
-)
+  (let [
+    {:keys [points edges cells]} (voronoi/diagram coords)
+    edgelines (map edgeline edges)
+    cell-lines (map polygon cells)
+    pointstrings (map point coords)
+    svgbody (concat cell-lines pointstrings)]
+    (svg svgbody)
+  ))
