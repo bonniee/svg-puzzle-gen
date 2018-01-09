@@ -55,7 +55,7 @@
     y2 (y point2)
     dx (- x2 x1)
     dy (- y2 y1)
-    yscale (- 1 (* 2 (rand-int 2)))
+    yscale (- 1 (* 2 (rand-int 2))) ; Until I find a non-destructive flip transform, this will have to wait.
     line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
     angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
     pathid (format "path-%d-%d-%d-%d" x1 y1 x2 y2)
