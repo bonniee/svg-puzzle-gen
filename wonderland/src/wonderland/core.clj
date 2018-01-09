@@ -1,4 +1,5 @@
-(ns wonderland.core)
+(ns wonderland.core
+  (:require [voronoi-diagram.core :as voronoi]))
 
 (defn foo
   "I don't do a whole lot."
@@ -8,4 +9,5 @@
 (defn -main
   []
   (foo "from main:")
+  
   )
