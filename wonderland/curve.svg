@@ -1,0 +1,4 @@
+<svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- this is the first part of a sine wave curve -->
+  <path d="M0 0 C 100 100, 200 200, 314 200 S 526 100 628 0" stroke="black" fill="transparent"/>
+</svg>
