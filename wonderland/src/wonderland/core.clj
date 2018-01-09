@@ -2,7 +2,7 @@
   (:require [voronoi-diagram.core :as voronoi]))
 
 (def max-coord 1000)
-(def N 7)
+(def N 3)
 
 ; Convenience extractors for points of the form [x y]
 (defn x [point] (double (nth point 0)))
@@ -72,6 +72,31 @@
     (format polygon-string points-string))
   )
 
+(defn quadsquiggle [p1 p2]
+  (let [
+    x1 (x p1)
+    y1 (y p1)
+    x2 (x p2)
+    y2 (y p2)
+    dx (Math/abs (- x2 x1))
+    dy (Math/abs (- y2 y1))
+    line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
+    line-length-ratio (/ line-length 100.0)
+    angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
+    midx (+ (min x1 x2) dx)
+    yjitter 20
+    midheight (rand-int yjitter)
+
+    ; Scale by line-length in the x-direction,
+    ; then rotate by $angle degrees around the (0, 0) point
+    path-string "<path
+                  d=\"M 0 0 Q 50 100, 100 0\" stroke=\"black\" fill=\"transparent\"
+                  transform=\"translate(%f %f) rotate(%f 0 0) scale (%f 1)\"/>
+                  "
+    ]
+  (format path-string x1 y1 angle line-length-ratio)
+  ))
+
 (defn puzzlepath [point1 point2]
   (let [
     x1 (x point1)
@@ -96,7 +121,7 @@
 )
 
 (defn edgeline [edge]
-  (puzzlepath (nth edge 0) (nth edge 1)))
+  (quadsquiggle (nth edge 0) (nth edge 1)))
 
 ; Sets up coordinates for puzzle piece anchor points
 (def coords
@@ -119,8 +144,15 @@
   (let [
     {:keys [points edges cells]} (voronoi/diagram coords)
     edgelines (map edgeline edges)
+
+    triangle_points [[500 500] [700 700] [600 500]]
+    triangle_paths [[[500 500] [700 700]] [[700 700] [600 500]] [[500 500] [600 500]]]
+    curvies (map edgeline triangle_paths)
+    triangle_point_strings (map point triangle_points)
+
+    simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges)
     cell-lines (map polygon-by-polygon-svg cells)
     pointstrings (map point coords)
-    svgbody (concat edgelines pointstrings)]
-    (svg svgbody)
+    svgbody (concat edgelines simplelines pointstrings)]
+    (svg (concat curvies triangle_point_strings))
   ))
