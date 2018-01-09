@@ -1,8 +1,8 @@
 (ns wonderland.core
   (:require [voronoi-diagram.core :as voronoi]))
 
-(def max-coord 500)
-(def N 4)
+(def max-coord 1000)
+(def N 7)
 
 ; Convenience extractors for points of the form [x y]
 (defn x [point] (double (nth point 0)))
@@ -72,9 +72,6 @@
     (format polygon-string points-string))
   )
 
-(defn edgeline [edge]
-  (line (nth edge 0) (nth edge 1) :color "blue"))
-
 (defn puzzlepath [point1 point2]
   (let [
     x1 (x point1)
@@ -86,24 +83,27 @@
     yscale (- 1 (* 2 (rand-int 2))) ; Until I find a non-destructive flip transform, this will have to wait.
     line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
     angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
-    pathid (format "path-%d-%d-%d-%d" x1 y1 x2 y2)
+    pathid (format "path-%.2f-%.2f-%.2f-%.2f" x1 y1 x2 y2)
     path-string "<path 
         d=\"M0,21 C30,28 45,28 45,21 C45,17 34,16 35,11 C36,6 42.5,1 50,1 C57.5,1 64,6 65,11 C66,16 55,20 55,21 C55,24 70,24 100,21\"
         id=\"%s\"
         stroke=\"#979797\"
         fill=\"none\"
-        transform=\"translate(%d %d) rotate(%f 0 21) scale(%f 1)\">
+        transform=\"translate(%f %f) rotate(%f 0 21) scale(%f 1)\">
       </path>"
     ]
     (format path-string pathid x1 (- y1 21) angle (/ line-length 100)))
 )
+
+(defn edgeline [edge]
+  (puzzlepath (nth edge 0) (nth edge 1)))
 
 ; Sets up coordinates for puzzle piece anchor points
 (def coords
   (vec (for [x (range N) y (range N)]
     (let [xcoord (+ 50 (* 100 x))
           ycoord (+ 50 (* 100 y))
-          jitter 0
+          jitter 50
           xjitter (rand-int jitter)
           yjitter (rand-int jitter)
       ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
