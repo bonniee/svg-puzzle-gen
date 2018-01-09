@@ -68,13 +68,17 @@
     (format path-string x1 y1 x2 y2 x1 (- y1 21) angle (/ line-length 100)))
 )
 
+(defn flippable-puzzle-path [p1 p2]
+  (puzzlepath p1 p2))
+
+
 (defn rand-color []
   (let [colors ["66c2a5" "fc8d62" "8da0cb"]]
     (nth colors (rand-int (count colors)))
     ))
 
 (def max-coord 1000)
-(def N 6)
+(def N 3)
 
 (defn svg [body]
   (println (svg-prefix max-coord max-coord))
@@ -93,8 +97,8 @@
 (svg 
 (flatten (for [i (range N) j (range N)]
   (let [point1 (nth (nth coords i) j)
-       path-south (if (< (+ 1 j) N) (puzzlepath point1  (nth (nth coords i) (+ 1 j))))
-       path-east (if (< (+ 1 i) N) (puzzlepath point1 (nth (nth coords (+ 1 i)) j)))
+       path-south (if (< (+ 1 j) N) (flippable-puzzle-path point1  (nth (nth coords i) (+ 1 j))))
+       path-east (if (< (+ 1 i) N) (flippable-puzzle-path point1 (nth (nth coords (+ 1 i)) j)))
   ]
     (filter (complement nil?) (list path-south path-east))
   ))))
