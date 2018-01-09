@@ -2,7 +2,7 @@
   (:require [voronoi-diagram.core :as voronoi]))
 
 (def max-coord 500)
-(def N 5)
+(def N 4)
 
 ; Convenience extractors for points of the form [x y]
 (defn x [point] (double (nth point 0)))
@@ -36,14 +36,6 @@
     (format ellipse-string (x coord) (y coord) radius radius))
 )
 
-(defn polygon [points]
-  (let [
-    polygon-string "<polygon fill=\"none\" stroke=\"black\" stroke-width=\"2\" points=\"%s\"/>"
-    points-string (apply str (map (fn [p] (format "%.2f,%.2f " (x p) (y p))) points))
-    ]
-    (format polygon-string points-string))
-  )
-
 (defn line [p1 p2]
   (let [
     line-string "<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\"
@@ -55,6 +47,23 @@
       ]
       (format line-string x1 y1 x2 y2)
       )
+  )
+
+(defn polygon [points]
+  (apply str (for [i (range (- (count points) 1))]
+    (let [p1 (nth points i)
+          p2 (nth points (+ 1 i))]
+          (line p1 p2)
+          ))))
+
+; DONT USE ME
+; This is the "right" way to make a polygon but sadly useless for our purposes.
+(defn polygon-by-polygon-svg [points]
+  (let [
+    polygon-string "<polygon fill=\"none\" stroke=\"black\" stroke-width=\"2\" points=\"%s\"/>"
+    points-string (apply str (map (fn [p] (format "%.2f,%.2f " (x p) (y p))) points))
+    ]
+    (format polygon-string points-string))
   )
 
 (defn edgeline [edge]
@@ -88,7 +97,7 @@
   (vec (for [x (range N) y (range N)]
     (let [xcoord (+ 50 (* 100 x))
           ycoord (+ 50 (* 100 y))
-          jitter 10
+          jitter 0
           xjitter (rand-int jitter)
           yjitter (rand-int jitter)
       ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
@@ -104,7 +113,7 @@
   (let [
     {:keys [points edges cells]} (voronoi/diagram coords)
     edgelines (map edgeline edges)
-    cell-lines (map polygon cells)
+    cell-lines (map polygon-by-polygon-svg cells)
     pointstrings (map point coords)
     svgbody (concat cell-lines pointstrings)]
     (svg svgbody)
