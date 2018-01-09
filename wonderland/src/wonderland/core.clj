@@ -36,25 +36,31 @@
     (format ellipse-string (x coord) (y coord) radius radius))
 )
 
-(defn line [p1 p2]
+(defn line [p1 p2 & {:keys [color] :or {color "black"}}]
   (let [
     line-string "<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\"
-      stroke-width=\"2\" stroke=\"black\"/>"
+      stroke-width=\"2\" stroke=\"%s\"/>"
       x1 (x p1)
       y1 (y p1)
       x2 (x p2)
-      y2 (x p2)
+      y2 (y p2)
       ]
-      (format line-string x1 y1 x2 y2)
+      (format line-string x1 y1 x2 y2 color)
       )
   )
 
 (defn polygon [points]
-  (apply str (for [i (range (- (count points) 1))]
+  (let [
+    firstpoint (first points)
+    lastpoint (nth points (- (count points) 1))
+    lastline (line firstpoint lastpoint)
+    ]
+  (apply str (concat lastline (for [i (range (- (count points) 1))]
     (let [p1 (nth points i)
           p2 (nth points (+ 1 i))]
           (line p1 p2)
-          ))))
+          ))))))
+
 
 ; DONT USE ME
 ; This is the "right" way to make a polygon but sadly useless for our purposes.
@@ -67,7 +73,7 @@
   )
 
 (defn edgeline [edge]
-  (line (nth edge 0) (nth edge 1)))
+  (line (nth edge 0) (nth edge 1) :color "blue"))
 
 (defn puzzlepath [point1 point2]
   (let [
@@ -115,6 +121,6 @@
     edgelines (map edgeline edges)
     cell-lines (map polygon-by-polygon-svg cells)
     pointstrings (map point coords)
-    svgbody (concat cell-lines pointstrings)]
+    svgbody (concat edgelines pointstrings)]
     (svg svgbody)
   ))
