@@ -79,34 +79,25 @@
 (defn squiggle-path
   []
   (let [
-    squig-x-start 35.0
-    squig-x-end 80.0
-    cph (fn [] (+ (rand-int 10) 20.0))
-    neg-cph #(* -1 (cph))
-    s-phrase (fn [x h] (str " S " x " " h " " x " 0 "))
-    num-squigs (+ (rand-int 4) 1)
+    squig-x-start 10.0
+    squig-x-end 90.0
+    cph (fn [] (+ (rand-int 10) 10.0)) ; Control point height, with random jitter
+    neg-cph #(* -1 (cph)) ; Control point height, but negative
+    s-phrase (fn [x h] (str " S " x " " h " " x " 0 ")) ; Convenience function for generating an S-term
+    num-squigs (+ (rand-int 4) 5) ; Number of squiggles to draw
     dx (- squig-x-end squig-x-start)
     squig-width (/ dx num-squigs)
 
     first-move-line (str " M 0 0 " squig-x-start " 0 ")
-    mk-first-control-path (fn [x-start x-end] (format " C %f %f %f %f %f 0 " x-start (neg-cph) x-end (cph) x-end))
-    first-control-path (mk-first-control-path squig-x-start (+ squig-width squig-x-start))
+    cp-jitter (fn [x] (+ (- (/ squig-width 4.0) (rand-int (/ squig-width 4.0)))) x)
+    mk-first-control-path (fn [x-start x-end] (format " C %f %f %f %f %f 0 " (cp-jitter x-start) (neg-cph) (cp-jitter x-end) (cph) x-end))
+    c-phrase-end (+ squig-width squig-x-start)
+    first-control-path (mk-first-control-path squig-x-start c-phrase-end)
 
-    s-starts (take-nth squig-width (range (+ squig-width squig-x-start) squig-x-end))
+    s-starts (take-nth squig-width (range (+ squig-width c-phrase-end) squig-x-end))
     s-phrases (apply str (map-indexed (fn [i x] (s-phrase x (if (= 0 (mod i 2)) (cph) (neg-cph)))) s-starts))
     ]
 
-    
-    ; (println "generating a squig between " squig-x-start " and " squig-x-end "; total distance is dx " dx)
-    ; (println "Num of squigs: " num-squigs "; typical width is " squig-width)
-
-    ; (println "first control path starts at " squig-x-start " and ends at " (+ squig-width squig-x-start))
-
-    ; (println "s-starts!")
-    ; (println s-starts)
-
-    ; (println "s-phrases!")
-    ; (println s-phrases)
     (str first-move-line first-control-path s-phrases (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
 
 (defn quadsquiggle [p1 p2]
@@ -194,6 +185,6 @@
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
     svgbody (concat edgelines pointstrings)]
-    (svg debug_line)
+    (svg svgbody)
     ; (svg svgbody)
   ))

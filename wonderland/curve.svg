@@ -22,6 +22,9 @@
 <!-- same as above, but with control point jitter. -->
     <path d="M 0 0 C -10 -100 60 -100 50 0 S 65 100 75 0 S 135 -100 125 0 S 255 100 225 0" stroke="green" fill="transparent" stroke-dasharray="1,1"/>
 
+<!-- testing out move to command - looks like an arbitrary list of points is A-OK. -->
+    <!-- <path d="M -20 0 0 0 C -10 -100 60 -100 50 0 S 65 100 75 0 S 135 -100 125 0 S 255 100 225 0" stroke="green" fill="transparent" stroke-dasharray="1,1"/> -->
+
 
     <!-- <path d="M 0 0 Q 10 -100, 25 -50 T 50 50 T 75 -50 T 100 0" stroke="red" fill="transparent"/> -->
 
