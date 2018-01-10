@@ -78,8 +78,19 @@
 
 (defn squiggle-path
   []
-  (let [cph 20]
-    (str "M 0 0 20 0 C 20 " (* -1 cph) " 30 " (* -1 cph) " 30 0 S 40 " cph " 40 0 M 40 0 100 0")))
+  (let [
+    squig-x-start 35
+    squig-x-end 80
+    cph (fn [] (+ (rand-int 10) 20))
+    s-phrase (fn [x h] (str "S " x " " h " " x " 0 "))
+    num-squigs (+ (rand-int 4) 1)
+    dx (- squig-x-end squig-x-start)
+    squig-width (/ dx num-squigs)
+    s-starts (take-nth squig-width (range (+ dx squig-x-start) squig-x-end))
+    s-phrases (apply str (map-indexed (fn [i x] (s-phrase x (if (= 0 (mod i 2)) cph (* -1 cph)))) s-starts))
+    ]
+
+    (str "M 0 0 " squig-x-start " 0 C " squig-x-start " " (* -1 (cph)) " 30 " (* -1 (cph)) " 30 0 " s-phrases " " (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
 
 (defn quadsquiggle [p1 p2]
   (let [
@@ -156,15 +167,16 @@
     {:keys [points edges cells]} (voronoi/diagram coords)
     edgelines (map edgeline edges)
 
-    triangle_points [[500 500] [700 700] [600 500]]
-    triangle_paths [[[500 500] [700 700]] [[700 700] [600 500]] [[500 500] [600 500]]]
-    curvies (map edgeline triangle_paths)
-    triangle_point_strings (map point triangle_points)
+    straight_line [[[500 500] [700 500]]]
+    straight_line_points[[500 500] [700 500]]
+    debug_line (map edgeline straight_line)
+    debug_points (map point straight_line_points)
+    debug_body (concat debug_line debug_points)
 
     simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
     svgbody (concat edgelines pointstrings)]
-    (svg svgbody)
-    ; (svg (concat curvies triangle_point_strings))
+    (svg debug_body)
+    ; (svg svgbody)
   ))
