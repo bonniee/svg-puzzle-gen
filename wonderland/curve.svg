@@ -1,4 +1,4 @@
-<svg width="2000" height="2000" xmlns="http://www.w3.org/2000/svg" viewBox="-5 -100 200 200">
+<svg width="2000" height="2000" xmlns="http://www.w3.org/2000/svg" viewBox="-20 -100 900 900">
   <!-- this is the first part of a sine wave curve -->
   <!-- use S format to mirror curve from previous segment 
         take previous end point:
@@ -10,7 +10,23 @@
 <!--   <path d="
     M0 0 C 100 100, 200 200, 314 200 
     S 526 100 628 0" stroke="black" fill="transparent"/> -->
-    <path d="M 0 0 Q 50 200, 100 0" stroke="blue" fill="transparent"/>
 
-    <path d="M 0 0 Q 50 100, 100 0" stroke="green" fill="transparent"/>
+<!-- a bezier loop-de-loop, like an ugly sine wave. control points are directly above/below origins. -->
+    <path d="M 0 0 C 0 -100 50 -100 50 0 S 100 100 100 0" stroke="blue" fill="transparent" transform="translate(0 400)"/>
+
+<!-- a bezier loop-de-loop with varying widths. control points directly above/below origins. -->
+<!-- first segment width: 50; then 25; then 50; then 100. y points at 0. -->
+<!-- It's probably worth experimenting with an offset here - what happens if control points move inward/outward? -->
+    <path d="M 0 0 C 0 -100 50 -100 50 0 S 75 100 75 0 S 125 -100 125 0 S 225 100 225 0" stroke="red" fill="transparent" stroke-dasharray="5,5" transform="translate(0 200)"/>
+
+<!-- same as above, but with control point jitter. -->
+    <path d="M 0 0 C -10 -100 60 -100 50 0 S 65 100 75 0 S 135 -100 125 0 S 255 100 225 0" stroke="green" fill="transparent" stroke-dasharray="1,1"/>
+
+
+    <!-- <path d="M 0 0 Q 10 -100, 25 -50 T 50 50 T 75 -50 T 100 0" stroke="red" fill="transparent"/> -->
+
+<!-- some quadratic curves... -->
+    <!-- <path d="M 0 0 Q 50 200, 100 0" stroke="blue" fill="transparent"/> -->
+
+    <!-- <path d="M 0 0 Q 50 100, 100 0" stroke="green" fill="transparent"/> -->
 </svg>
