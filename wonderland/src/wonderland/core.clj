@@ -1,5 +1,6 @@
 (ns wonderland.core
-  (:require [voronoi-diagram.core :as voronoi]))
+  (:require [voronoi-diagram.core :as voronoi])
+  (:require [clojure.set :as set]))
 
 ; Global variables for SVG dimensions
 (def max-coord 1000)
@@ -35,9 +36,16 @@
     (format ellipse-string (x coord) (y coord) radius radius))
 )
 
-; Remove points from coords that are too close to a provided point
-(defn filter_near_points [coords point radius]
-  (vec (filter (fn [candidate] (< radius (pointdist candidate point))) coords)))
+; Coords should be a set.
+; Returns a set of points which conflict with the clipping circle around the provided point.
+(defn disallowed_points [coords point radius]
+  (set (filter (fn [candidate] (> radius (pointdist candidate point))) coords)))
+
+; Removes all coordinates which include points conflicting with whimsy pieces.
+; Whimsies should be a collection of Whimsy
+(defn whimsy_disallowed_points [coords whimsies]
+  (reduce concat
+    (map (fn [w] (disallowed_points coords (.-origin w) (.-radius w))) whimsies)))
 
 ; Whimsy: a whimsy puzzle piece
 ; origin: center point for placement
@@ -49,7 +57,7 @@
 
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
-  (vec (for [x (range N) y (range N)]
+  (set (for [x (range N) y (range N)]
     (let [xcoord (+ 50 (* 100 x))
           ycoord (+ 50 (* 100 y))
           jitter 50
@@ -57,8 +65,8 @@
           yjitter (rand-int jitter)
       ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
 
-(def coords 
-  (vec (concat (filter_near_points base-coords (list 400 400) 200) [[400 400]])))
+(def coords
+  (vec (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES))))
 
 ; Prefix for SVG file
 (defn svg-prefix [width height]
