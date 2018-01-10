@@ -30,7 +30,7 @@
       rx=\"%d\"
       ry=\"%d\"
       stroke=\"#fc8d62\"
-      stroke-width=\"4\"
+      stroke-width=\"1\"
       fill=\"transparent\"
     />"]
     (format ellipse-string (x coord) (y coord) radius radius))
@@ -54,9 +54,12 @@
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
 (def WHIMSIES (list 
-  (Whimsy. [400 400] 200 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))
-  (Whimsy. [700 800] 100 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
+  (Whimsy. [400 400] 250 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))
+  (Whimsy. [700 800] 150 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
   ))
+
+(def WHIMSY_PATHS
+  (apply str (map (fn [w] (.-svgpath w)) WHIMSIES)))
 
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
@@ -194,10 +197,9 @@
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
 
-    ; TODO: draw whimsies
-    ; TODO: draw puzzle lines extending to whimsies
-    
-    svgbody (concat puzzlelines) ; this is what we're actually printing out
+    ; TODO: draw puzzle lines extending from nearest neighbors to whimsy anchor points
+
+    svgbody (concat puzzlelines WHIMSY_PATHS) ; this is what we're actually printing out
 
     ; Variables below are only used for debugging
     straight_line [[[500 500] [700 500]]]
