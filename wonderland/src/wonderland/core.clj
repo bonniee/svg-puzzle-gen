@@ -19,6 +19,21 @@
     dy (- y2 y1)]
     (Math/sqrt (+ (* dx dx) (* dy dy)))))
 
+; Draw an SVG ellipse element representing a point
+; Expects a coord of form [x y]
+(defn point [coord & {:keys [radius] :or {radius 1}}]
+  (let [
+    ellipse-string "<ellipse
+      cx=\"%.2f\"
+      cy=\"%.2f\"
+      rx=\"%d\"
+      ry=\"%d\"
+      stroke=\"#fc8d62\"
+      stroke-width=\"4\"
+      fill=\"transparent\"
+    />"]
+    (format ellipse-string (x coord) (y coord) radius radius))
+)
 
 ; Remove points from coords that are too close to a provided point
 (defn filter_near_points [coords point radius]
@@ -30,6 +45,7 @@
 ; svgpath: for drawing it
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
+(def WHIMSIES (list (Whimsy. [400 400] 200 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))))
 
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
@@ -62,21 +78,7 @@
   (println (apply str body))
   (println svg-suffix))
 
-; Draw an SVG ellipse element representing a point
-; Expects a coord of form [x y]
-(defn point [coord & {:keys [radius] :or {radius 1}}]
-  (let [
-    ellipse-string "<ellipse
-      cx=\"%.2f\"
-      cy=\"%.2f\"
-      rx=\"%d\"
-      ry=\"%d\"
-      stroke=\"#fc8d62\"
-      stroke-width=\"4\"
-      fill=\"transparent\"
-    />"]
-    (format ellipse-string (x coord) (y coord) radius radius))
-)
+
 
 ; Draw an SVG element representing a line from p1 to p2
 ; Expects each point to be of the form [x y]
