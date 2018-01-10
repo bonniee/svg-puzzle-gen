@@ -72,6 +72,15 @@
     (format polygon-string points-string))
   )
 
+(defn transform-string
+  [x y angle line-length-ratio]
+  (format "translate(%f %f) rotate (%f 0 0) scale (%f 1)" x y angle line-length-ratio))
+
+(defn squiggle-path
+  []
+  (let [cph 20]
+    (str "M 0 0 20 0 C 20 " (* -1 cph) " 30 " (* -1 cph) " 30 0 S 40 " cph " 40 0 M 40 0 100 0")))
+
 (defn quadsquiggle [p1 p2]
   (let [
     x1 (x p1)
@@ -86,10 +95,9 @@
     midx (+ (min x1 x2) dx)
     yjitter 20
     midheight (rand-int yjitter)
-    transform-template "translate(%f %f) rotate (%f 0 0) scale (%f 1)" ; TODO: extract this into a separate function
-    transform-string (format transform-template x1 y1 angle line-length-ratio)
+    transformed-string (transform-string x1 y1 angle line-length-ratio)
     cph 20
-    path-template (str "M 0 0 20 0 C 0 " (* -1 cph) " 30 " (* -1 cph) " 65 0 M 65 0 100 0") ; TODO extract this into a separate function
+    path-template (squiggle-path)
     ; Scale by line-length in the x-direction,
     ; then rotate by $angle degrees around the (0, 0) point
     path-string "<path
@@ -97,7 +105,7 @@
                   transform=\"%s\"/>
                   "
     ]
-  (format path-string path-template transform-string)
+  (format path-string path-template transformed-string)
   ))
 
 (defn puzzlepath [point1 point2]
