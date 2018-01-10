@@ -5,8 +5,28 @@
 (def max-coord 1000)
 (def N 10)
 
+; Convenience extractors for points of the form [x y]
+(defn x [point] (double (nth point 0)))
+(defn y [point] (double (nth point 1)))
+
+(defn pointdist [p1 p2]
+  (let [
+    x1 (x p1)
+    x2 (x p2)
+    y1 (y p1)
+    y2 (y p2)
+    dx (- x2 x1)
+    dy (- y2 y1)]
+    (Math/sqrt (+ (* dx dx) (* dy dy)))))
+
+
+; Remove points from coords that are too close to a provided point
+(defn filter_near_points [coords point radius]
+  (vec (filter (fn [candidate] (< radius (pointdist candidate point))) coords)))
+
+
 ; Sets up coordinates for puzzle piece anchor points
-(def coords
+(def base-coords
   (vec (for [x (range N) y (range N)]
     (let [xcoord (+ 50 (* 100 x))
           ycoord (+ 50 (* 100 y))
@@ -15,9 +35,8 @@
           yjitter (rand-int jitter)
       ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
 
-; Convenience extractors for points of the form [x y]
-(defn x [point] (double (nth point 0)))
-(defn y [point] (double (nth point 1)))
+(def coords 
+  (vec (concat (filter_near_points base-coords (list 400 400) 200) [[400 400]])))
 
 ; Prefix for SVG file
 (defn svg-prefix [width height]
@@ -39,9 +58,8 @@
 
 ; Draw an SVG ellipse element representing a point
 ; Expects a coord of form [x y]
-(defn point [coord]
+(defn point [coord & {:keys [radius] :or {radius 1}}]
   (let [
-    radius 1
     ellipse-string "<ellipse
       cx=\"%.2f\"
       cy=\"%.2f\"
@@ -49,6 +67,7 @@
       ry=\"%d\"
       stroke=\"#fc8d62\"
       stroke-width=\"4\"
+      fill=\"transparent\"
     />"]
     (format ellipse-string (x coord) (y coord) radius radius))
 )
@@ -161,5 +180,5 @@
     debug_points (map point straight_line_points)
     debug_body (concat debug_line debug_points)]
 
-    (svg puzzlelines)
+    (svg svgbody)
   ))
