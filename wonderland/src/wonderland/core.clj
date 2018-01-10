@@ -79,18 +79,23 @@
 (defn squiggle-path
   []
   (let [
-    squig-x-start 35
-    squig-x-end 80
-    cph (fn [] (+ (rand-int 10) 20))
+    squig-x-start 35.0
+    squig-x-end 80.0
+    cph (fn [] (+ (rand-int 10) 20.0))
+    neg-cph #(* -1 (cph))
     s-phrase (fn [x h] (str "S " x " " h " " x " 0 "))
     num-squigs (+ (rand-int 4) 1)
     dx (- squig-x-end squig-x-start)
     squig-width (/ dx num-squigs)
+
+    first-control-path (fn [x-start x-end] (format "C %f %f %f %f %f 0" x-start (neg-cph) x-end (cph) x-end))
+
     s-starts (take-nth squig-width (range (+ dx squig-x-start) squig-x-end))
     s-phrases (apply str (map-indexed (fn [i x] (s-phrase x (if (= 0 (mod i 2)) cph (* -1 cph)))) s-starts))
     ]
+    (println "taking num-squigs " num-squigs)
 
-    (str "M 0 0 " squig-x-start " 0 C " squig-x-start " " (* -1 (cph)) " 30 " (* -1 (cph)) " 30 0 " s-phrases " " (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
+    (str "M 0 0 " squig-x-start " 0 " (first-control-path squig-x-start (+ dx squig-x-start)) " " s-phrases " " (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
 
 (defn quadsquiggle [p1 p2]
   (let [
@@ -177,6 +182,6 @@
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
     svgbody (concat edgelines pointstrings)]
-    (svg debug_body)
+    (svg debug_line)
     ; (svg svgbody)
   ))
