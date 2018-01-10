@@ -61,6 +61,12 @@
 (def WHIMSY_PATHS
   (apply str (map (fn [w] (.-svgpath w)) WHIMSIES)))
 
+(def WHIMSY_ANCHOR_PATHS
+  (flatten (map (
+    fn [whimsy] (map (fn [anchor] (point anchor :radius 3)) (.-anchors whimsy))
+    ) WHIMSIES))
+  )
+
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
   (set (for [x (range N) y (range N)]
@@ -199,7 +205,7 @@
 
     ; TODO: draw puzzle lines extending from nearest neighbors to whimsy anchor points
 
-    svgbody (concat puzzlelines WHIMSY_PATHS) ; this is what we're actually printing out
+    svgbody (concat puzzlelines WHIMSY_PATHS WHIMSY_ANCHOR_PATHS) ; this is what we're actually printing out
 
     ; Variables below are only used for debugging
     straight_line [[[500 500] [700 500]]]
