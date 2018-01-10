@@ -54,7 +54,7 @@
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
 (def WHIMSIES (list 
-  (Whimsy. [400 400] 250 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))
+  (Whimsy. [400 400] 300 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))
   (Whimsy. [700 800] 150 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
   ))
 
