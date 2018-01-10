@@ -2,7 +2,7 @@
   (:require [voronoi-diagram.core :as voronoi]))
 
 (def max-coord 1000)
-(def N 3)
+(def N 10)
 
 ; Convenience extractors for points of the form [x y]
 (defn x [point] (double (nth point 0)))
@@ -86,15 +86,18 @@
     midx (+ (min x1 x2) dx)
     yjitter 20
     midheight (rand-int yjitter)
-
+    transform-template "translate(%f %f) rotate (%f 0 0) scale (%f 1)" ; TODO: extract this into a separate function
+    transform-string (format transform-template x1 y1 angle line-length-ratio)
+    cph 20
+    path-template (str "M 0 0 20 0 C 0 " (* -1 cph) " 30 " (* -1 cph) " 65 0 M 65 0 100 0") ; TODO extract this into a separate function
     ; Scale by line-length in the x-direction,
     ; then rotate by $angle degrees around the (0, 0) point
     path-string "<path
-                  d=\"M 0 0 Q 50 100, 100 0\" stroke=\"black\" fill=\"transparent\"
-                  transform=\"translate(%f %f) rotate(%f 0 0) scale (%f 1)\"/>
+                  d=\"%s\" stroke=\"black\" fill=\"transparent\"
+                  transform=\"%s\"/>
                   "
     ]
-  (format path-string x1 y1 angle line-length-ratio)
+  (format path-string path-template transform-string)
   ))
 
 (defn puzzlepath [point1 point2]
@@ -150,9 +153,10 @@
     curvies (map edgeline triangle_paths)
     triangle_point_strings (map point triangle_points)
 
-    simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges)
-    cell-lines (map polygon-by-polygon-svg cells)
-    pointstrings (map point coords)
-    svgbody (concat edgelines simplelines pointstrings)]
-    (svg (concat curvies triangle_point_strings))
+    simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
+    cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
+    pointstrings (map point coords) ; add this to see seed points
+    svgbody (concat edgelines pointstrings)]
+    (svg svgbody)
+    ; (svg (concat curvies triangle_point_strings))
   ))
