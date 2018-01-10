@@ -1,8 +1,19 @@
 (ns wonderland.core
   (:require [voronoi-diagram.core :as voronoi]))
 
+; Global variables for SVG dimensions
 (def max-coord 1000)
 (def N 10)
+
+; Sets up coordinates for puzzle piece anchor points
+(def coords
+  (vec (for [x (range N) y (range N)]
+    (let [xcoord (+ 50 (* 100 x))
+          ycoord (+ 50 (* 100 y))
+          jitter 50
+          xjitter (rand-int jitter)
+          yjitter (rand-int jitter)
+      ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
 
 ; Convenience extractors for points of the form [x y]
 (defn x [point] (double (nth point 0)))
@@ -20,7 +31,13 @@
 ; Suffix for SVG file
 (def svg-suffix "</svg>")
 
-; Draw the body of a point for SVG output
+; Create an SVG, suitable for file output.
+(defn svg [body]
+  (println (svg-prefix max-coord max-coord))
+  (println (apply str body))
+  (println svg-suffix))
+
+; Draw an SVG ellipse element representing a point
 ; Expects a coord of form [x y]
 (defn point [coord]
   (let [
@@ -36,6 +53,8 @@
     (format ellipse-string (x coord) (y coord) radius radius))
 )
 
+; Draw an SVG element representing a line from p1 to p2
+; Expects each point to be of the form [x y]
 (defn line [p1 p2 & {:keys [color] :or {color "black"}}]
   (let [
     line-string "<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\"
@@ -49,21 +68,9 @@
       )
   )
 
-(defn polygon [points]
-  (let [
-    firstpoint (first points)
-    lastpoint (nth points (- (count points) 1))
-    lastline (line firstpoint lastpoint)
-    ]
-  (apply str (concat lastline (for [i (range (- (count points) 1))]
-    (let [p1 (nth points i)
-          p2 (nth points (+ 1 i))]
-          (line p1 p2)
-          ))))))
-
-
 ; DONT USE ME
-; This is the "right" way to make a polygon but sadly useless for our purposes.
+; This is a simple renderer for a polygon SVG element.
+; Mostly useless for puzzle-building purposes but kept here for debugging.
 (defn polygon-by-polygon-svg [points]
   (let [
     polygon-string "<polygon fill=\"none\" stroke=\"black\" stroke-width=\"2\" points=\"%s\"/>"
@@ -72,11 +79,16 @@
     (format polygon-string points-string))
   )
 
+; Creates a string suitable for the "transform" argument of an SVG path element.
+; Handles scaling, rotation, and translation.
 (defn transform-string
   [x y angle line-length-ratio]
   (format "translate(%f %f) rotate (%f 0 0) scale (%f 1)" x y angle line-length-ratio))
 
-(defn squiggle-path
+; Draw a path from 0,0 to 100, 0, with squiggles based on cubic bezier curves in the middle
+; Produces a string suitable for the "d" (aka description) attribute of an SVG path
+; TODO: surely there's a better way to organize these sub-functions....
+(defn squiggle-path-description
   []
   (let [
     squig-x-start 10.0
@@ -100,7 +112,8 @@
 
     (str first-move-line first-control-path s-phrases (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
 
-(defn quadsquiggle [p1 p2]
+; Creates an SVG element using a series of cubic bezier curves
+(defn squiggle-path-svg [p1 p2]
   (let [
     x1 (x p1)
     y1 (y p1)
@@ -116,7 +129,7 @@
     midheight (rand-int yjitter)
     transformed-string (transform-string x1 y1 angle line-length-ratio)
     cph 20
-    path-template (squiggle-path)
+    path-template (squiggle-path-description)
     ; Scale by line-length in the x-direction,
     ; then rotate by $angle degrees around the (0, 0) point
     path-string "<path
@@ -127,64 +140,26 @@
   (format path-string path-template transformed-string)
   ))
 
-(defn puzzlepath [point1 point2]
-  (let [
-    x1 (x point1)
-    y1 (y point1)
-    x2 (x point2)
-    y2 (y point2)
-    dx (- x2 x1)
-    dy (- y2 y1)
-    yscale (- 1 (* 2 (rand-int 2))) ; Until I find a non-destructive flip transform, this will have to wait.
-    line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
-    angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
-    pathid (format "path-%.2f-%.2f-%.2f-%.2f" x1 y1 x2 y2)
-    path-string "<path 
-        d=\"M0,21 C30,28 45,28 45,21 C45,17 34,16 35,11 C36,6 42.5,1 50,1 C57.5,1 64,6 65,11 C66,16 55,20 55,21 C55,24 70,24 100,21\"
-        id=\"%s\"
-        stroke=\"#979797\"
-        fill=\"none\"
-        transform=\"translate(%f %f) rotate(%f 0 21) scale(%f 1)\">
-      </path>"
-    ]
-    (format path-string pathid x1 (- y1 21) angle (/ line-length 100)))
-)
-
-(defn edgeline [edge]
-  (quadsquiggle (nth edge 0) (nth edge 1)))
-
-; Sets up coordinates for puzzle piece anchor points
-(def coords
-  (vec (for [x (range N) y (range N)]
-    (let [xcoord (+ 50 (* 100 x))
-          ycoord (+ 50 (* 100 y))
-          jitter 50
-          xjitter (rand-int jitter)
-          yjitter (rand-int jitter)
-      ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
-
-; Create an SVG, suitable for file output.
-(defn svg [body]
-  (println (svg-prefix max-coord max-coord))
-  (println (apply str body))
-  (println svg-suffix))
+; Draws a puzzle-piece line for a given edge.
+(defn puzzleline [edge]
+  (squiggle-path-svg (nth edge 0) (nth edge 1)))
 
 (defn -main
   []
   (let [
     {:keys [points edges cells]} (voronoi/diagram coords)
-    edgelines (map edgeline edges)
-
-    straight_line [[[500 500] [700 500]]]
-    straight_line_points[[500 500] [700 500]]
-    debug_line (map edgeline straight_line)
-    debug_points (map point straight_line_points)
-    debug_body (concat debug_line debug_points)
-
+    puzzlelines (map puzzleline edges) ; draw puzzle lines based on voronoi edges
     simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
-    svgbody (concat edgelines pointstrings)]
+    svgbody (concat puzzlelines pointstrings) ; this is what we're actually printing out
+
+    ; Variables below are only used for debugging
+    straight_line [[[500 500] [700 500]]]
+    straight_line_points[[500 500] [700 500]]
+    debug_line (map puzzleline straight_line)
+    debug_points (map point straight_line_points)
+    debug_body (concat debug_line debug_points)]
+
     (svg svgbody)
-    ; (svg svgbody)
   ))
