@@ -24,6 +24,12 @@
 (defn filter_near_points [coords point radius]
   (vec (filter (fn [candidate] (< radius (pointdist candidate point))) coords)))
 
+; Whimsy: a whimsy puzzle piece
+; origin: center point for placement
+; radius: radius of the clipping circle for the whimsy
+; svgpath: for drawing it
+; anchors: points that should be connected to the rest of the puzzle
+(defrecord Whimsy [origin radius svgpath anchors])
 
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
