@@ -1,1 +1,1 @@
-cat.svg is from [publicdomainvectors.org](https://publicdomainvectors.org/en/free-clipart/Sitting-cat-silhouette-vector-drawing/14999.html)
+cat.svg is from [publicdomainvectors.org](https://publicdomainvectors.org/en/free-clipart/Cat-silhouette-vector/5369.html)
