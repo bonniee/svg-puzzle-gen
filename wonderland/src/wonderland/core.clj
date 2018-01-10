@@ -161,5 +161,5 @@
     debug_points (map point straight_line_points)
     debug_body (concat debug_line debug_points)]
 
-    (svg svgbody)
+    (svg puzzlelines)
   ))
