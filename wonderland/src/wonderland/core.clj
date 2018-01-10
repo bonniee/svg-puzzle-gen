@@ -53,7 +53,10 @@
 ; svgpath: for drawing it
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
-(def WHIMSIES (list (Whimsy. [400 400] 200 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))))
+(def WHIMSIES (list 
+  (Whimsy. [400 400] 200 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))
+  (Whimsy. [700 800] 100 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
+  ))
 
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
@@ -65,8 +68,11 @@
           yjitter (rand-int jitter)
       ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
 
+; Base coordinates, minus any pieces that conflict with whimsies
 (def coords
-  (vec (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES))))
+  (vec
+    (concat (map (fn [w] (.-origin w)) WHIMSIES) ; TODO: is there shorthand for this?
+    (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES)))))
 
 ; Prefix for SVG file
 (defn svg-prefix [width height]
@@ -187,7 +193,11 @@
     simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
-    svgbody (concat puzzlelines pointstrings) ; this is what we're actually printing out
+
+    ; TODO: draw whimsies
+    ; TODO: draw puzzle lines extending to whimsies
+    
+    svgbody (concat puzzlelines) ; this is what we're actually printing out
 
     ; Variables below are only used for debugging
     straight_line [[[500 500] [700 500]]]
