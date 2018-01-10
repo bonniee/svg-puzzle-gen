@@ -83,19 +83,31 @@
     squig-x-end 80.0
     cph (fn [] (+ (rand-int 10) 20.0))
     neg-cph #(* -1 (cph))
-    s-phrase (fn [x h] (str "S " x " " h " " x " 0 "))
+    s-phrase (fn [x h] (str " S " x " " h " " x " 0 "))
     num-squigs (+ (rand-int 4) 1)
     dx (- squig-x-end squig-x-start)
     squig-width (/ dx num-squigs)
 
-    first-control-path (fn [x-start x-end] (format "C %f %f %f %f %f 0" x-start (neg-cph) x-end (cph) x-end))
+    first-move-line (str " M 0 0 " squig-x-start " 0 ")
+    mk-first-control-path (fn [x-start x-end] (format " C %f %f %f %f %f 0 " x-start (neg-cph) x-end (cph) x-end))
+    first-control-path (mk-first-control-path squig-x-start (+ squig-width squig-x-start))
 
-    s-starts (take-nth squig-width (range (+ dx squig-x-start) squig-x-end))
-    s-phrases (apply str (map-indexed (fn [i x] (s-phrase x (if (= 0 (mod i 2)) cph (* -1 cph)))) s-starts))
+    s-starts (take-nth squig-width (range (+ squig-width squig-x-start) squig-x-end))
+    s-phrases (apply str (map-indexed (fn [i x] (s-phrase x (if (= 0 (mod i 2)) (cph) (neg-cph)))) s-starts))
     ]
-    (println "taking num-squigs " num-squigs)
 
-    (str "M 0 0 " squig-x-start " 0 " (first-control-path squig-x-start (+ dx squig-x-start)) " " s-phrases " " (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
+    
+    ; (println "generating a squig between " squig-x-start " and " squig-x-end "; total distance is dx " dx)
+    ; (println "Num of squigs: " num-squigs "; typical width is " squig-width)
+
+    ; (println "first control path starts at " squig-x-start " and ends at " (+ squig-width squig-x-start))
+
+    ; (println "s-starts!")
+    ; (println s-starts)
+
+    ; (println "s-phrases!")
+    ; (println s-phrases)
+    (str first-move-line first-control-path s-phrases (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
 
 (defn quadsquiggle [p1 p2]
   (let [
