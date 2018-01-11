@@ -105,8 +105,7 @@
     y2 (y p2)
     dx (- x2 x1)
     dy (- y2 y1)
-    line-length (Math/sqrt (+ (* dx dx) (* dy dy)))
-    line-length-ratio (/ line-length 100.0)
+    line-length-ratio (/ (pointdist p1 p2) 100.0)
     angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
     midx (+ (min x1 x2) dx)
     yjitter 20
