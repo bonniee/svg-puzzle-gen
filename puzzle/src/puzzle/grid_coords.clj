@@ -1,6 +1,6 @@
-; Returns coordinates for a squiggly puzzle.
-
-(ns puzzle.grid-coords)
+(ns puzzle.grid-coords
+  "Return grid-based coordinates for puzzle generation, with jitter"
+  )
 
 ; TODO parameterize the size / spacing better.
 

@@ -27,8 +27,6 @@
 (defn- slices-for-ring [ring]
   (+ (rand-int 2) ring))
 
-; TODO parameterize the size / spacing better.
-
 (defn seed-coords [rings]
   (concat (reduce concat (for [ring (range rings)]
       (circle-coords (slices-for-ring ring) (+ 2 (* 50 ring)))))

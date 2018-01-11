@@ -1,4 +1,6 @@
-(ns puzzle.strings)
+(ns puzzle.strings
+  "puzzle.strings contains string templates, mostly consisting of partial SVG paths."
+  )
 
 (def cat-whimsy "
   <path id=\"cat\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1\" stroke-miterlimit=\"10\" d=\"M55.571,141.777l55.54,0.994
