@@ -1,5 +1,7 @@
 (ns puzzle.core
   (:require [puzzle.strings :as strings])
+  (:require [puzzle.svg :as svg])
+  (:require [puzzle.point :refer :all])
   (:require [voronoi-diagram.core :as voronoi])
   (:require [clojure.set :as set])
   (:require [kdtree]))
@@ -7,26 +9,6 @@
 ; Global variables for SVG dimensions
 (def max-coord 1000)
 (def N 10)
-
-; Convenience extractors for points of the form [x y]
-(defn x [point] (double (nth point 0)))
-(defn y [point] (double (nth point 1)))
-
-(defn pointdist [p1 p2]
-  (let [
-    x1 (x p1)
-    x2 (x p2)
-    y1 (y p1)
-    y2 (y p2)
-    dx (- x2 x1)
-    dy (- y2 y1)]
-    (Math/sqrt (+ (* dx dx) (* dy dy)))))
-
-; Draw an SVG ellipse element representing a point
-; Expects a coord of form [x y]
-(defn point [coord & {:keys [radius] :or {radius 1}}]
-  (format strings/ellipse-template (x coord) (y coord) radius radius)
-)
 
 ; Coords should be a set.
 ; Returns a set of points which conflict with the clipping circle around the provided point.
@@ -81,41 +63,6 @@
   (vec
     (concat (map (fn [w] (.-origin w)) WHIMSIES) ; TODO: is there shorthand for this?
     (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES)))))
-
-; Prefix for SVG file
-(defn svg-prefix [width height]
-  (format strings/svg-prefix-template width height))
-
-; Create an SVG, suitable for file output.
-(defn svg [body]
-  (println (svg-prefix max-coord max-coord))
-  (println (apply str body))
-  (println strings/svg-suffix))
-
-
-
-; Draw an SVG element representing a line from p1 to p2
-; Expects each point to be of the form [x y]
-(defn line [p1 p2 & {:keys [color] :or {color "black"}}]
-  (let [
-      x1 (x p1)
-      y1 (y p1)
-      x2 (x p2)
-      y2 (y p2)
-      ]
-      (format strings/line-template x1 y1 x2 y2 color)
-      )
-  )
-
-; DONT USE ME
-; This is a simple renderer for a polygon SVG element.
-; Mostly useless for puzzle-building purposes but kept here for debugging.
-(defn polygon-by-polygon-svg [points]
-  (let [
-    points-string (apply str (map (fn [p] (format "%.2f,%.2f " (x p) (y p))) points))
-    ]
-    (format strings/polygon-template points-string))
-  )
 
 ; Creates a string suitable for the "transform" argument of an SVG path element.
 ; Handles scaling, rotation, and translation.
@@ -192,9 +139,9 @@
   (let [
     {:keys [points edges cells]} (voronoi/diagram coords)
     puzzlelines (map puzzleline edges) ; draw puzzle lines based on voronoi edges
-    simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
-    cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
-    pointstrings (map point coords) ; add this to see seed points
+    simplelines (map (fn [p] (svg/line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
+    cell-lines (map svg/polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
+    pointstrings (map svg/point coords) ; add this to see seed points
     whimsy-anchors (whimsy_anchor_paths (points_from_edges edges))
 
     ; TODO: draw puzzle lines extending from nearest neighbors to whimsy anchor points
@@ -205,8 +152,8 @@
     straight_line [[[500 500] [700 500]]]
     straight_line_points[[500 500] [700 500]]
     debug_line (map puzzleline straight_line)
-    debug_points (map point straight_line_points)
+    debug_points (map svg/point straight_line_points)
     debug_body (concat debug_line debug_points)]
 
-    (svg svgbody)
+    (svg/svg svgbody max-coord max-coord)
   ))
