@@ -1,6 +1,7 @@
 (ns wonderland.core
   (:require [voronoi-diagram.core :as voronoi])
-  (:require [clojure.set :as set]))
+  (:require [clojure.set :as set])
+  (:require [kdtree]))
 
 ; Global variables for SVG dimensions
 (def max-coord 1000)
@@ -47,6 +48,10 @@
   (reduce concat
     (map (fn [w] (disallowed_points coords (.-origin w) (.-radius w))) whimsies)))
 
+(defn points_from_edges [edges]
+  (reduce concat
+    (map (fn [edge] #{(nth edge 0) (nth edge 1)}) edges)))
+
 ; Whimsy: a whimsy puzzle piece
 ; origin: center point for placement
 ; radius: radius of the clipping circle for the whimsy
@@ -60,12 +65,6 @@
 
 (def WHIMSY_PATHS
   (apply str (map (fn [w] (.-svgpath w)) WHIMSIES)))
-
-(def WHIMSY_ANCHOR_PATHS
-  (flatten (map (
-    fn [whimsy] (map (fn [anchor] (point anchor :radius 3)) (.-anchors whimsy))
-    ) WHIMSIES))
-  )
 
 ; Sets up coordinates for puzzle piece anchor points
 (def base-coords
@@ -194,6 +193,16 @@
 (defn puzzleline [edge]
   (squiggle-path-svg (nth edge 0) (nth edge 1)))
 
+(defn whimsy_anchor_paths [points]
+  (let [tree (kdtree/build-tree points)]
+    (flatten (map (
+      fn [whimsy] (map (fn [anchor]
+        (let [neighbor (:point (nth (kdtree/nearest-neighbor tree anchor 2) 0))] ; todo double check this
+          (puzzleline [anchor neighbor]))
+        ; (point anchor :radius 3)
+        ) (.-anchors whimsy))
+      ) WHIMSIES))))
+
 (defn -main
   []
   (let [
@@ -202,10 +211,11 @@
     simplelines (map (fn [p] (line (nth p 0) (nth p 1) :color "blue")) edges) ; add this to see voronoi boundaries
     cell-lines (map polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map point coords) ; add this to see seed points
+    whimsy-anchors (whimsy_anchor_paths (points_from_edges edges))
 
     ; TODO: draw puzzle lines extending from nearest neighbors to whimsy anchor points
 
-    svgbody (concat puzzlelines WHIMSY_PATHS WHIMSY_ANCHOR_PATHS) ; this is what we're actually printing out
+    svgbody (concat puzzlelines WHIMSY_PATHS whimsy-anchors) ; this is what we're actually printing out
 
     ; Variables below are only used for debugging
     straight_line [[[500 500] [700 500]]]

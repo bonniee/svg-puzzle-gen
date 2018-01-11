@@ -6,5 +6,5 @@
   :dependencies [
   [org.clojure/clojure "1.8.0"]
   [trystan/voronoi-diagram "1.0.0"]
-  [knn "0.1.2"]]
+  [clj-kdtree "1.2.0" :exclusions [org.clojure/clojure]]]
   :main ^:skip-aot wonderland.core)
