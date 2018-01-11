@@ -66,8 +66,8 @@
 
 ; Creates a string suitable for the "transform" argument of an SVG path element.
 ; Handles scaling, rotation, and translation.
-(defn transform-string [x y angle line-length-ratio]
-  (format strings/transform-template x y angle line-length-ratio))
+(defn transform-string [origin angle line-length-ratio]
+  (format strings/transform-template (x origin) (y origin) angle line-length-ratio))
 
 ; Draw a path from 0,0 to 100, 0, with squiggles based on cubic bezier curves in the middle
 ; Produces a string suitable for the "d" (aka description) attribute of an SVG path
@@ -99,19 +99,8 @@
 ; Creates an SVG element using a series of cubic bezier curves
 (defn squiggle-path-svg [p1 p2]
   (let [
-    x1 (x p1)
-    y1 (y p1)
-    x2 (x p2)
-    y2 (y p2)
-    dx (- x2 x1)
-    dy (- y2 y1)
     line-length-ratio (/ (pointdist p1 p2) 100.0)
-    angle (* (/ 180 Math/PI) (Math/atan2 dy dx))
-    midx (+ (min x1 x2) dx)
-    yjitter 20
-    midheight (rand-int yjitter)
-    transformed-string (transform-string x1 y1 angle line-length-ratio)
-    cph 20
+    transformed-string (transform-string p1 (angle p1 p2) line-length-ratio)
     path-d-attribute (squiggle-path-description)
     ; Scale by line-length in the x-direction,
     ; then rotate by $angle degrees around the (0, 0) point
