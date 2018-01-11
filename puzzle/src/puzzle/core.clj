@@ -7,8 +7,6 @@
   (:require [clojure.set :as set])
   (:require [kdtree]))
 
-; TODO: solve duplicate point insertion bug
-
 ; Global variables for SVG dimensions
 (def max-coord 1000)
 (def N 10)
@@ -26,7 +24,7 @@
 
 (defn points_from_edges [edges]
   (reduce concat
-    (map (fn [edge] #{(nth edge 0) (nth edge 1)}) edges)))
+    (map (fn [edge] #{(nth edge 0) (nth edge 1)}) edges))) ; TODO: duplicate set insertion bug here
 
 ; Whimsy: a whimsy puzzle piece
 ; origin: center point for placement

@@ -89,13 +89,12 @@
               (s-path-phrase x h x 0))
 
 ; Adds +/- jitter to base value
-; TODO confirm behavior here
 (defn- jitter [base jitter]
-  (+ base (- jitter (rand-int jitter))))
+  (+ base (- jitter (rand-int (* 2 jitter)))))
 
 ; TODO play around with this
 (defn- control-point-x-jitter [x squig-width]
-  (jitter x (/ squig-width 4.0)))
+  (jitter x (/ squig-width 2.0)))
 
 (defn- first-c-phrase [squig-width]
   (let [x-end (+ squig-width x-start)]
