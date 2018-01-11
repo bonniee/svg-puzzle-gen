@@ -1,4 +1,4 @@
-(ns wonderland.core
+(ns puzzle.core
   (:require [voronoi-diagram.core :as voronoi])
   (:require [clojure.set :as set])
   (:require [kdtree]))

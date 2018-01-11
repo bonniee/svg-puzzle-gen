@@ -1,7 +1,7 @@
-(ns wonderland.core-test
+(ns puzzle.core-test
   (:require [clojure.test :refer :all]
-            [wonderland.core :refer :all]))
+            [puzzle.core :refer :all]))
 
 (deftest a-test
   (testing "Basic test template."
-    (is (= 1 1))))
+    (is (= 0 1))))

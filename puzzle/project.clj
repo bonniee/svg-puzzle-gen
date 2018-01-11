@@ -1,4 +1,4 @@
-(defproject wonderland "0.1.0-SNAPSHOT"
+(defproject puzzle "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -7,4 +7,4 @@
   [org.clojure/clojure "1.8.0"]
   [trystan/voronoi-diagram "1.0.0"]
   [clj-kdtree "1.2.0" :exclusions [org.clojure/clojure]]]
-  :main ^:skip-aot wonderland.core)
+  :main ^:skip-aot puzzle.core)
