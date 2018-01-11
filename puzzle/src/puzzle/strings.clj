@@ -19,7 +19,6 @@
       ry=\"%d\"
       stroke=\"#fc8d62\"
       stroke-width=\"1\"
-      fill=\"transparent\"
     />")
 
 (def svg-prefix-template "<svg xmlns=\"http://www.w3.org/2000/svg\"

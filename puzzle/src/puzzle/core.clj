@@ -2,14 +2,16 @@
   (:require [puzzle.strings :as strings])
   (:require [puzzle.svg :as svg])
   (:require [puzzle.squiggle :as squiggle])
+  (:require [puzzle.circular-coords :as circular-coords])
+  (:require [puzzle.grid-coords :as grid-coords])
   (:require [puzzle.point :refer :all])
   (:require [voronoi-diagram.core :as voronoi])
   (:require [clojure.set :as set])
   (:require [kdtree]))
 
 ; Global variables for SVG dimensions
-(def max-coord 1000)
-(def N 10)
+(def max-coord 1500)
+(def N (/ max-coord 100))
 
 ; Coords should be a set.
 ; Returns a set of points which conflict with the clipping circle around the provided point.
@@ -22,6 +24,7 @@
   (reduce concat
     (map (fn [w] (disallowed_points coords (.-origin w) (.-radius w))) whimsies)))
 
+; For use with voronoi edges
 (defn points_from_edges [edges]
   (reduce concat
     (map (fn [edge] #{(nth edge 0) (nth edge 1)}) edges))) ; TODO: duplicate set insertion bug here
@@ -50,14 +53,8 @@
   (apply str (map (fn [w] (.-svgpath w)) WHIMSIES)))
 
 ; Sets up coordinates for puzzle piece anchor points
-(def base-coords
-  (set (for [x (range N) y (range N)]
-    (let [xcoord (+ 50 (* 100 x))
-          ycoord (+ 50 (* 100 y))
-          jitter 50
-          xjitter (rand-int jitter)
-          yjitter (rand-int jitter)
-      ] (vec (list (+ xcoord xjitter) (+ ycoord yjitter)))))))
+; (def base-coords (grid-coords/seed-coords N))
+(def base-coords (circular-coords/seed-coords 12))
 
 ; Base coordinates, minus any pieces that conflict with whimsies
 (def coords
