@@ -11,7 +11,7 @@
 (def dx (- x-end x-start))
 
 (defn- control-point-height []
-  (+ (rand-int 10) 10.0))
+  (+ (rand-int 10) 20.0))
 
 (defn- neg-control-point-height []
               (* -1 (control-point-height)))
@@ -21,7 +21,7 @@
 
 ; Adds +/- jitter to base value
 (defn- jitter [base jitter]
-  (+ base (- jitter (rand-int (* 2 jitter)))))
+  (+ base (- jitter (rand-int jitter))))
 
 ; TODO play around with this
 (defn- control-point-x-jitter [x squig-width]
@@ -54,7 +54,7 @@
 
 ; Create the d attribute for a squiggle path
 (defn- squiggle-path-d []
-  (let [num-squigs (+ (rand-int 4) 5)
+  (let [num-squigs 2
         squig-width (/ dx num-squigs)]
         (str  (m-path-phrase 0 0 x-start 0)
               (first-c-phrase squig-width)

@@ -2,7 +2,7 @@
 
 (def origin-x 600)
 (def origin-y 600)
-(def jitter 20)
+(def jitter 40)
 
 (defn- xlen [angle radius]
   (* radius (Math/cos (Math/toRadians angle))))

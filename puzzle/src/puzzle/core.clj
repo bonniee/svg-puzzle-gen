@@ -53,7 +53,7 @@
   (apply str (map (fn [w] (.-svgpath w)) WHIMSIES)))
 
 ; Sets up coordinates for puzzle piece anchor points
-; (def base-coords (grid-coords/seed-coords N))
+; (def base-coords (grid-coords/seed-coords 10 :jitter 100))
 (def base-coords (circular-coords/seed-coords 12))
 
 ; Base coordinates, minus any pieces that conflict with whimsies

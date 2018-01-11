@@ -1,0 +1,608 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1500" height="1500">
+<path
+  d=" M 0 0 10.0 0 C 29.0 -27.0 56.0 21.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(584.619395 652.016398) rotate (15.255951 0 0) scale (0.547333 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -20.0 57.0 25.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(576.518545 626.460653) rotate (72.412039 0 0) scale (0.268090 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -20.0 53.0 25.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(576.518545 626.460653) rotate (-33.021555 0 0) scale (0.483254 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -20.0 57.0 20.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(617.037760 600.125488) rotate (-44.797724 0 0) scale (0.283292 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -21.0 70.0 24.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(637.140096 580.164591) rotate (73.218111 0 0) scale (0.425493 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -26.0 68.0 21.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(637.423848 666.418437) rotate (-75.228868 0 0) scale (0.470723 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -25.0 51.0 27.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(576.171895 495.745280) rotate (18.870940 0 0) scale (0.470245 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -22.0 66.0 23.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(576.171895 495.745280) rotate (81.710952 0 0) scale (0.577991 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -27.0 65.0 27.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(584.504618 552.940552) rotate (55.414454 0 0) scale (0.573134 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -22.0 58.0 20.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(620.668762 510.954753) rotate (76.613143 0 0) scale (0.711429 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -22.0 52.0 24.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(540.310415 674.729696) rotate (-27.140204 0 0) scale (0.497914 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -29.0 61.0 28.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(540.310415 674.729696) rotate (49.585288 0 0) scale (0.719086 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -23.0 70.0 22.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(586.929871 729.478882) rotate (-5.853247 0 0) scale (0.576554 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -22.0 59.0 29.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(637.423848 666.418437) rotate (83.158121 0 0) scale (0.575908 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -26.0 66.0 20.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(620.367839 442.894999) rotate (89.746670 0 0) scale (0.680604 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -27.0 66.0 25.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(649.425334 620.901794) rotate (-38.701975 0 0) scale (0.534315 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -23.0 53.0 28.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(691.123759 587.492696) rotate (-78.040173 0 0) scale (1.138347 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -21.0 58.0 27.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(673.474426 417.574738) rotate (54.843607 0 0) scale (0.716188 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -26.0 54.0 20.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(620.367839 442.894999) rotate (-25.490963 0 0) scale (0.588339 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -22.0 67.0 20.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(691.123759 587.492696) rotate (19.820241 0 0) scale (0.539559 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -24.0 65.0 22.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(729.440857 671.019104) rotate (-79.200917 0 0) scale (0.664076 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -25.0 57.0 29.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(673.578308 741.880432) rotate (-51.750009 0 0) scale (0.902328 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -23.0 69.0 21.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(644.284627 723.599141) rotate (31.967026 0 0) scale (0.345301 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -25.0 58.0 25.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(478.014292 666.173340) rotate (7.820626 0 0) scale (0.628810 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -29.0 52.0 26.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(440.583811 608.715780) rotate (56.917940 0 0) scale (0.685741 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -22.0 54.0 25.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(440.583811 608.715780) rotate (-60.263854 0 0) scale (0.600813 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -25.0 54.0 29.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(470.384552 556.546021) rotate (17.161934 0 0) scale (0.770307 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -24.0 64.0 28.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(543.985402 579.275716) rotate (55.414454 0 0) scale (0.573134 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -22.0 70.0 27.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(543.985402 579.275716) rotate (-33.021555 0 0) scale (0.483254 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -24.0 52.0 28.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(507.562805 443.326925) rotate (37.380360 0 0) scale (0.863417 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -24.0 52.0 24.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(442.294678 477.792501) rotate (-27.836803 0 0) scale (0.738092 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -23.0 60.0 23.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(442.294678 477.792501) rotate (70.369655 0 0) scale (0.836131 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -24.0 62.0 22.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(714.713236 476.129038) rotate (-21.784525 0 0) scale (0.955607 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -23.0 66.0 27.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(741.883362 605.787537) rotate (-31.368494 0 0) scale (0.806886 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -20.0 59.0 20.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(810.778300 563.785868) rotate (-54.761675 0 0) scale (0.658199 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -22.0 65.0 29.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(803.449544 440.664846) rotate (56.848467 0 0) scale (0.828473 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -28.0 65.0 26.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(673.578308 741.880432) rotate (51.543969 0 0) scale (0.537928 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -28.0 63.0 22.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(707.032796 784.004801) rotate (7.020805 0 0) scale (0.554597 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -23.0 60.0 23.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(762.076681 790.783630) rotate (-77.410200 0 0) scale (0.744281 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -22.0 59.0 23.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(729.440857 671.019104) rotate (43.965695 0 0) scale (0.678826 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -25.0 67.0 20.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(459.585459 722.253499) rotate (-71.808654 0 0) scale (0.590306 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -21.0 61.0 20.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(459.585459 722.253499) rotate (37.028490 0 0) scale (0.866736 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -20.0 64.0 21.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(528.780121 774.449382) rotate (-37.716815 0 0) scale (0.735101 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -21.0 55.0 27.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(810.778300 563.785868) rotate (45.309889 0 0) scale (0.967426 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -27.0 68.0 28.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(858.778646 721.689880) rotate (-77.330428 0 0) scale (0.913520 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -20.0 70.0 21.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(778.299744 718.145081) rotate (2.522038 0 0) scale (0.805569 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -22.0 66.0 28.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(536.176626 834.903727) rotate (61.662201 0 0) scale (0.725137 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -22.0 58.0 24.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(528.780121 774.449382) rotate (83.024609 0 0) scale (0.609051 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -29.0 66.0 28.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(707.032796 784.004801) rotate (84.855351 0 0) scale (0.746558 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -21.0 55.0 29.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(643.459452 921.737569) rotate (-42.048763 0 0) scale (0.946271 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -26.0 63.0 23.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(570.596639 898.727722) rotate (17.525953 0 0) scale (0.764097 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -27.0 66.0 27.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(379.720072 615.144470) rotate (-6.029471 0 0) scale (0.612023 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -24.0 62.0 21.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(379.720072 615.144470) rotate (75.826235 0 0) scale (0.961840 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -27.0 59.0 27.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(403.272024 708.400411) rotate (13.820323 0 0) scale (0.579923 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -22.0 52.0 21.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(464.860779 381.089020) rotate (55.545606 0 0) scale (0.754786 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -29.0 61.0 21.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(464.860779 381.089020) rotate (-12.897401 0 0) scale (0.700761 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -20.0 57.0 22.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(533.168945 365.447622) rotate (41.610499 0 0) scale (1.166265 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -21.0 54.0 29.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(295.779195 575.284688) rotate (45.253433 0 0) scale (0.485811 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -25.0 52.0 28.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(269.089727 518.082855) rotate (64.986989 0 0) scale (0.631219 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -28.0 65.0 26.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(269.089727 518.082855) rotate (-54.784476 0 0) scale (0.813351 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -23.0 52.0 29.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(315.991908 451.633006) rotate (-14.809122 0 0) scale (0.733525 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -26.0 65.0 20.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(386.907817 432.884135) rotate (39.035575 0 0) scale (0.713054 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -26.0 54.0 28.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(329.978963 609.788350) rotate (6.145925 0 0) scale (0.500287 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -28.0 57.0 22.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(673.474426 417.574738) rotate (-86.323327 0 0) scale (0.860332 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -26.0 52.0 20.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(643.884196 263.567454) rotate (62.745310 0 0) scale (0.766622 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -21.0 63.0 21.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(551.168335 271.976227) rotate (-5.182206 0 0) scale (0.930964 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -24.0 64.0 26.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(533.168945 365.447622) rotate (-79.100215 0 0) scale (0.951887 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -21.0 60.0 27.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(903.068441 514.546590) rotate (71.891859 0 0) scale (0.842255 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -24.0 63.0 29.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(848.755005 510.026835) rotate (4.756974 0 0) scale (0.545012 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -22.0 58.0 20.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(878.814697 632.562236) rotate (22.287058 0 0) scale (0.693346 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -26.0 52.0 28.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(929.246704 594.600566) rotate (77.944731 0 0) scale (0.657056 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -27.0 68.0 28.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(713.727214 858.359823) rotate (7.020805 0 0) scale (0.554597 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -28.0 67.0 23.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(762.076681 790.783630) rotate (84.855351 0 0) scale (0.746558 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -27.0 65.0 20.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(467.141337 870.478821) rotate (-27.262844 0 0) scale (0.776625 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -26.0 52.0 25.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(353.059021 782.164246) rotate (-55.755841 0 0) scale (0.892326 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -25.0 53.0 29.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(353.059021 782.164246) rotate (65.378827 0 0) scale (0.922860 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -22.0 63.0 21.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(391.506927 866.059835) rotate (3.343739 0 0) scale (0.757634 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -26.0 67.0 29.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(703.355387 290.983846) rotate (-13.686081 0 0) scale (0.651227 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -20.0 57.0 25.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(766.629069 275.575668) rotate (34.744921 0 0) scale (0.934400 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -22.0 56.0 28.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(843.408468 328.829351) rotate (73.136638 0 0) scale (0.687567 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -27.0 66.0 25.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(803.449544 440.664846) rotate (-37.541489 0 0) scale (0.755501 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -28.0 59.0 26.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(678.991394 331.718587) rotate (-59.115792 0 0) scale (0.474650 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -25.0 68.0 29.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(903.068441 514.546590) rotate (-23.363030 0 0) scale (0.699482 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -24.0 64.0 21.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(967.281637 486.808238) rotate (71.891859 0 0) scale (0.842255 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 11.0 -27.0 53.0 28.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(929.246704 594.600566) rotate (-23.363030 0 0) scale (0.699482 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -26.0 70.0 29.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(858.778646 721.689880) rotate (83.603132 0 0) scale (1.157953 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -26.0 54.0 21.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(797.895447 907.574443) rotate (-43.821612 0 0) scale (1.022655 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -23.0 63.0 29.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(768.771098 865.138652) rotate (55.537580 0 0) scale (0.514687 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -28.0 51.0 22.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(501.561351 934.302816) rotate (-27.262844 0 0) scale (0.776625 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -25.0 57.0 25.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(467.141337 870.478821) rotate (61.662201 0 0) scale (0.725137 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -22.0 56.0 25.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(268.620631 688.409932) rotate (-52.030594 0 0) scale (0.997306 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -26.0 68.0 24.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(268.148738 767.529887) rotate (9.778904 0 0) scale (0.861622 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -27.0 66.0 29.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(268.148738 767.529887) rotate (-89.658276 0 0) scale (0.791214 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -24.0 54.0 26.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(386.907817 432.884135) rotate (-85.022261 0 0) scale (0.749613 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -28.0 51.0 28.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(393.412109 358.205556) rotate (17.759138 0 0) scale (0.750238 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -24.0 66.0 29.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1021.197083 768.656067) rotate (84.134578 0 0) scale (0.721006 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -20.0 60.0 20.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(952.630636 882.405172) rotate (-28.962307 0 0) scale (0.867885 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -29.0 52.0 29.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(871.679932 836.764221) rotate (29.414811 0 0) scale (0.929307 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -23.0 67.0 21.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(942.969666 658.857178) rotate (49.657676 0 0) scale (0.827161 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -26.0 59.0 28.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(996.516195 721.902608) rotate (62.170679 0 0) scale (0.528681 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -25.0 53.0 28.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(818.745158 957.492228) rotate (72.991299 0 0) scale (0.435980 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -27.0 58.0 21.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(819.199605 1051.226563) rotate (-76.703970 0 0) scale (0.534767 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -26.0 69.0 25.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(724.349894 1056.793905) rotate (-3.359205 0 0) scale (0.950130 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -25.0 56.0 20.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(630.126729 1013.208964) rotate (24.823911 0 0) scale (1.038155 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -27.0 59.0 21.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(630.126729 1013.208964) rotate (-81.707060 0 0) scale (0.924380 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 11.0 -25.0 56.0 29.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(797.895447 907.574443) rotate (67.330633 0 0) scale (0.540971 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -23.0 51.0 23.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(448.442240 974.012492) rotate (-36.780288 0 0) scale (0.663212 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -27.0 53.0 21.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(359.662852 930.425476) rotate (-63.676686 0 0) scale (0.718121 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -28.0 52.0 29.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(359.662852 930.425476) rotate (26.149133 0 0) scale (0.989020 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -28.0 66.0 28.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(218.335454 636.322856) rotate (-38.243815 0 0) scale (0.986062 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -28.0 54.0 28.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(210.059845 705.843628) rotate (-83.211572 0 0) scale (0.700116 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -24.0 59.0 25.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(210.059845 705.843628) rotate (-16.578403 0 0) scale (0.611007 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -24.0 64.0 24.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(376.562408 303.954432) rotate (72.745878 0 0) scale (0.568075 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -22.0 52.0 29.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(254.265447 371.414327) rotate (52.422531 0 0) scale (1.012185 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -27.0 52.0 24.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(254.265447 371.414327) rotate (-53.475129 0 0) scale (0.908414 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -26.0 63.0 21.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(308.331655 298.414332) rotate (4.642035 0 0) scale (0.684553 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -21.0 60.0 20.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(668.248189 222.832713) rotate (62.745310 0 0) scale (0.766622 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -25.0 51.0 28.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(643.884196 263.567454) rotate (-59.115792 0 0) scale (0.474650 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 17.0 -22.0 54.0 28.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(863.354126 394.629486) rotate (20.809784 0 0) scale (1.171617 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -25.0 53.0 28.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(967.281637 486.808238) rotate (-83.689017 0 0) scale (0.508634 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -27.0 65.0 23.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(915.415141 289.390147) rotate (36.982209 0 0) scale (1.085459 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -29.0 63.0 20.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(843.408468 328.829351) rotate (-28.710224 0 0) scale (0.821000 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -29.0 67.0 25.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(972.872782 436.253123) rotate (-0.431254 0 0) scale (0.667651 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -23.0 62.0 26.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1002.124003 354.687759) rotate (65.167570 0 0) scale (0.893215 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 11.0 -21.0 57.0 26.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(996.516195 721.902608) rotate (-14.053335 0 0) scale (0.759422 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -23.0 67.0 21.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1070.185404 703.461955) rotate (-72.632064 0 0) scale (0.896197 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -26.0 69.0 25.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1059.687358 548.095184) rotate (61.923800 0 0) scale (0.791469 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -25.0 56.0 28.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(993.459900 566.862213) rotate (-15.821262 0 0) scale (0.688351 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -24.0 52.0 22.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(818.745158 957.492228) rotate (1.833928 0 0) scale (1.069598 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -27.0 65.0 20.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(925.650187 960.915222) rotate (-71.034410 0 0) scale (0.830167 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -28.0 54.0 27.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(580.787048 1068.380147) rotate (-48.193681 0 0) scale (0.740153 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 11.0 -23.0 62.0 24.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(561.512533 1097.589457) rotate (-56.580147 0 0) scale (0.349956 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 17.0 -22.0 62.0 20.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(484.870290 1059.118103) rotate (26.654829 0 0) scale (0.857559 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -26.0 69.0 21.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(448.442240 974.012492) rotate (66.827455 0 0) scale (0.925741 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -29.0 69.0 28.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(190.030713 821.916056) rotate (-34.845834 0 0) scale (0.951855 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -21.0 59.0 24.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(306.918203 963.276510) rotate (-31.915954 0 0) scale (0.621385 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -25.0 59.0 26.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(218.209348 903.645569) rotate (33.909372 0 0) scale (1.068883 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -28.0 64.0 24.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(190.030713 821.916056) rotate (70.976873 0 0) scale (0.864508 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -28.0 67.0 24.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(151.395844 607.405070) rotate (-76.316663 0 0) scale (0.863169 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -29.0 64.0 27.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(171.814585 523.538035) rotate (-3.209779 0 0) scale (0.974280 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -27.0 60.0 28.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(151.395844 607.405070) rotate (23.364253 0 0) scale (0.729188 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 11.0 -28.0 56.0 20.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(376.562408 303.954432) rotate (-38.278735 0 0) scale (1.139457 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 17.0 -23.0 52.0 20.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(466.010468 233.366501) rotate (24.389065 0 0) scale (0.935017 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -23.0 56.0 21.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(756.463053 188.881877) rotate (83.311842 0 0) scale (0.872878 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -29.0 70.0 24.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(689.487467 144.077189) rotate (33.781353 0 0) scale (0.805803 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -24.0 57.0 23.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(664.546285 162.619848) rotate (-36.629159 0 0) scale (0.310788 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -27.0 63.0 27.0 50.0 0  S 90.0 24.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(664.546285 162.619848) rotate (86.481867 0 0) scale (0.603266 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -29.0 53.0 24.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(301.044769 1027.507263) rotate (30.370004 0 0) scale (1.033553 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -24.0 66.0 28.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(301.044769 1027.507263) rotate (-84.775250 0 0) scale (0.644987 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 17.0 -24.0 58.0 29.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(390.217468 1079.761841) rotate (-12.303516 0 0) scale (0.968779 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -24.0 59.0 29.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(143.394396 769.461304) rotate (-43.659898 0 0) scale (0.921493 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -21.0 56.0 24.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(143.394396 769.461304) rotate (48.360439 0 0) scale (0.701887 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -22.0 60.0 29.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(146.133682 482.117910) rotate (58.200662 0 0) scale (0.487354 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 17.0 -23.0 56.0 25.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(181.682363 396.444051) rotate (-19.026364 0 0) scale (0.767775 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -26.0 56.0 27.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(146.133682 482.117910) rotate (-67.464956 0 0) scale (0.927562 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -28.0 64.0 25.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(381.663045 182.740283) rotate (-7.208651 0 0) scale (0.868697 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -27.0 52.0 29.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(311.596680 238.727071) rotate (-38.626733 0 0) scale (0.896873 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -24.0 55.0 25.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(308.331655 298.414332) rotate (-86.868915 0 0) scale (0.597765 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -25.0 67.0 21.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(466.010468 233.366501) rotate (-88.291127 0 0) scale (0.615543 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -20.0 64.0 28.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(467.846080 171.839612) rotate (-25.736626 0 0) scale (1.093218 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -20.0 65.0 29.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(566.323120 124.368258) rotate (21.277706 0 0) scale (1.054086 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -21.0 59.0 26.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(915.415141 289.390147) rotate (-86.211583 0 0) scale (0.687142 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -25.0 59.0 28.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(837.782552 173.571472) rotate (29.901675 0 0) scale (0.947911 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 30.0 -23.0 54.0 22.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(756.463053 188.881877) rotate (-10.662529 0 0) scale (0.827482 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -23.0 68.0 29.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1039.635986 435.750600) rotate (27.665405 0 0) scale (0.684635 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -20.0 51.0 21.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1059.687358 548.095184) rotate (-63.260707 0 0) scale (0.902025 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -23.0 53.0 27.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1070.185404 703.461955) rotate (62.170679 0 0) scale (0.528681 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -20.0 53.0 23.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1021.197083 768.656067) rotate (-14.053335 0 0) scale (0.759422 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -25.0 60.0 27.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(925.650187 960.915222) rotate (72.991299 0 0) scale (0.435980 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -20.0 57.0 26.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(831.498311 999.183268) rotate (1.833928 0 0) scale (1.069598 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 24.0 -26.0 66.0 20.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(580.787048 1068.380147) rotate (24.823911 0 0) scale (1.038155 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 18.0 -20.0 58.0 23.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(675.010213 1111.965088) rotate (-48.193681 0 0) scale (0.740153 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -23.0 55.0 20.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(212.335915 967.876322) rotate (33.909372 0 0) scale (1.068883 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -28.0 56.0 24.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(212.335915 967.876322) rotate (-84.775250 0 0) scale (0.644987 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -20.0 54.0 20.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(107.477587 696.294902) rotate (-63.707167 0 0) scale (0.991474 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 22.0 -20.0 62.0 26.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(107.477587 696.294902) rotate (63.853943 0 0) scale (0.815067 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -21.0 70.0 27.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(322.895376 198.350466) rotate (-14.875702 0 0) scale (0.608056 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -20.0 60.0 27.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(311.596680 238.727071) rotate (-74.366641 0 0) scale (0.419277 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -22.0 54.0 26.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(566.323120 124.368258) rotate (-36.629159 0 0) scale (0.310788 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -27.0 60.0 22.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(591.264303 105.825600) rotate (21.277706 0 0) scale (1.054086 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -23.0 57.0 28.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(919.955241 220.826060) rotate (36.982209 0 0) scale (1.085459 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -24.0 52.0 22.0 50.0 0  S 90.0 29.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1002.124003 354.687759) rotate (-86.211583 0 0) scale (0.687142 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 13.0 -23.0 55.0 29.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1100.272298 467.538686) rotate (61.923800 0 0) scale (0.791469 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 15.0 -28.0 58.0 23.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1096.937480 617.928263) rotate (-63.260707 0 0) scale (0.902025 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -27.0 68.0 23.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1094.866292 750.215413) rotate (84.134578 0 0) scale (0.721006 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 19.0 -23.0 51.0 21.0 50.0 0  S 90.0 26.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1028.565206 840.379232) rotate (-14.053335 0 0) scale (0.759422 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 29.0 -27.0 59.0 27.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(819.199605 1051.226563) rotate (1.833928 0 0) scale (1.069598 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 12.0 -23.0 51.0 20.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(926.104635 1054.649556) rotate (-76.703970 0 0) scale (0.534767 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -21.0 53.0 20.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(655.735697 1141.174398) rotate (-56.580147 0 0) scale (0.349956 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 27.0 -28.0 60.0 27.0 50.0 0  S 90.0 23.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(561.512533 1097.589457) rotate (24.823911 0 0) scale (1.038155 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 17.0 -27.0 64.0 27.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1006.664103 286.123672) rotate (62.488009 0 0) scale (2.832834 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 11.0 -26.0 54.0 25.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(1070.185404 703.461955) rotate (74.863238 0 0) scale (1.227349 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -27.0 68.0 29.0 50.0 0  S 90.0 28.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(926.104635 1054.649556) rotate (-52.879355 0 0) scale (2.918494 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 20.0 -23.0 59.0 23.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(655.735697 1141.174398) rotate (-17.745975 0 0) scale (2.838766 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 26.0 -28.0 70.0 24.0 50.0 0  S 90.0 20.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(390.217468 1079.761841) rotate (13.023116 0 0) scale (2.725279 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 28.0 -23.0 69.0 20.0 50.0 0  S 90.0 27.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(212.335915 967.876322) rotate (32.169436 0 0) scale (2.101433 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 16.0 -20.0 58.0 26.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(107.477587 696.294902) rotate (68.888289 0 0) scale (2.911215 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 25.0 -26.0 60.0 23.0 50.0 0  S 90.0 22.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(107.477587 696.294902) rotate (-79.769019 0 0) scale (2.176375 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 23.0 -26.0 55.0 23.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(181.682363 396.444051) rotate (-54.516445 0 0) scale (2.432739 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 14.0 -20.0 51.0 21.0 50.0 0  S 90.0 21.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(591.264303 105.825600) rotate (15.366172 0 0) scale (2.556575 1)"/>
+  <path
+  d=" M 0 0 10.0 0 C 21.0 -21.0 58.0 24.0 50.0 0  S 90.0 25.0 90.0 0 M 90.0 0 100 0" stroke="black" fill="transparent"
+  transform="translate(837.782552 173.571472) rotate (33.681729 0 0) scale (2.029507 1)"/>
+  
+</svg>
