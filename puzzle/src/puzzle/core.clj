@@ -6,6 +6,8 @@
   (:require [clojure.set :as set])
   (:require [kdtree]))
 
+; TODO: solve duplicate point insertion bug
+
 ; Global variables for SVG dimensions
 (def max-coord 1000)
 (def N 10)
@@ -64,11 +66,6 @@
     (concat (map (fn [w] (.-origin w)) WHIMSIES) ; TODO: is there shorthand for this?
     (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES)))))
 
-; Creates a string suitable for the "transform" argument of an SVG path element.
-; Handles scaling, rotation, and translation.
-(defn transform-string [origin angle line-length-ratio]
-  (format strings/transform-template (x origin) (y origin) angle line-length-ratio))
-
 ; Draw a path from 0,0 to 100, 0, with squiggles based on cubic bezier curves in the middle
 ; Produces a string suitable for the "d" (aka description) attribute of an SVG path
 ; TODO: surely there's a better way to organize these sub-functions....
@@ -98,15 +95,7 @@
 
 ; Creates an SVG element using a series of cubic bezier curves
 (defn squiggle-path-svg [p1 p2]
-  (let [
-    line-length-ratio (/ (pointdist p1 p2) 100.0)
-    transformed-string (transform-string p1 (angle p1 p2) line-length-ratio)
-    path-d-attribute (squiggle-path-description)
-    ; Scale by line-length in the x-direction,
-    ; then rotate by $angle degrees around the (0, 0) point
-    ]
-  (format strings/path-template path-d-attribute transformed-string)
-  ))
+  (svg/svg-path p1 p2 (squiggle-path-description) 100.0))
 
 ; Draws a puzzle-piece line for a given edge.
 (defn puzzleline [edge]

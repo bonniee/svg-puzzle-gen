@@ -40,3 +40,53 @@
     ]
     (format strings/polygon-template points-string))
   )
+
+; Creates a string suitable for the "transform" argument of an SVG path element.
+; Handles scaling, rotation, and translation.
+(defn- transform-string [origin angle line-length-ratio]
+  (format strings/transform-template (x origin) (y origin) angle line-length-ratio))
+
+; Draws a path between two points,
+; provided the start and end points and a description
+; of the path.
+; base-length represents the length of the described path;
+; the described path will be scaled and rotated according to the
+; start and end points.
+(defn svg-path [start end description base-length]
+  (let [length-ratio (/ (pointdist start end) base-length)
+        transformed-string (transform-string
+          start (angle start end) length-ratio)]
+        (format strings/path-template description transformed-string)))
+
+(defn s-path-phrase [x1 y1 x2 y2]
+  (str " S " x1 " " y1 " " x2 " " y2))
+
+(defn c-path-phrase [x1 y1 x2 y2 x3 y3]
+  (str " C " x1 " " y1 " " x2 " " y2 " " x3 " " y3 " "))
+
+(defn m-path-phrase [x1 y1 x2 y2]
+  (str " M " x1 " " y1 " " x2 " " y2))
+
+(ns puzzle.squiggle
+  (:require [puzzle.svg :refer :all]))
+
+(def x-start 10.0)
+
+(def x-end 90.0)
+
+(def dx (- x-end x-start))
+
+(defn- control-point-height []
+  (+ (rand-int 10) 10.0))
+
+(defn- neg-control-point-height []
+              (* -1 control-point-height))
+
+(defn- squiggle-s-phrase [x h]
+              (s-path-phrase x h x 0))
+
+; Create the d attribute for a squiggle path
+(defn- squiggle-path-d []
+  (let [num-squigs (+ (rand-int 4) 5)
+        squig-width (/ dx num-squigs)
+    ]))
