@@ -33,14 +33,14 @@
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
 (def WHIMSIES (list 
-  (Whimsy. [400 400] 250 strings/cat-whimsy (
-    list
-      [339.23 484.17] ; tail
-      [384.24 386.15] ; back
-      [436.84 321.39] ; left ear
-      [465.03 459.87] ; forepaw
-      [475.61 377.46] ; chest
-          ))
+  ; (Whimsy. [400 400] 250 strings/cat-whimsy (
+  ;   list
+  ;     [339.23 484.17] ; tail
+  ;     [384.24 386.15] ; back
+  ;     [436.84 321.39] ; left ear
+  ;     [465.03 459.87] ; forepaw
+  ;     [475.61 377.46] ; chest
+  ;         ))
 
   ; Circular whimsy
   ; (Whimsy. [700 800] 150 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
