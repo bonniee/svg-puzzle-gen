@@ -1,6 +1,7 @@
 (ns puzzle.core
   (:require [puzzle.strings :as strings])
   (:require [puzzle.svg :as svg])
+  (:require [puzzle.squiggle :as squiggle])
   (:require [puzzle.point :refer :all])
   (:require [voronoi-diagram.core :as voronoi])
   (:require [clojure.set :as set])
@@ -66,40 +67,9 @@
     (concat (map (fn [w] (.-origin w)) WHIMSIES) ; TODO: is there shorthand for this?
     (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES)))))
 
-; Draw a path from 0,0 to 100, 0, with squiggles based on cubic bezier curves in the middle
-; Produces a string suitable for the "d" (aka description) attribute of an SVG path
-; TODO: surely there's a better way to organize these sub-functions....
-(defn squiggle-path-description
-  []
-  (let [
-    squig-x-start 10.0
-    squig-x-end 90.0
-    cph (fn [] (+ (rand-int 10) 10.0)) ; Control point height, with random jitter
-    neg-cph #(* -1 (cph)) ; Control point height, but negative
-    s-phrase (fn [x h] (str " S " x " " h " " x " 0 ")) ; Convenience function for generating an S-term
-    num-squigs (+ (rand-int 4) 5) ; Number of squiggles to draw
-    dx (- squig-x-end squig-x-start)
-    squig-width (/ dx num-squigs)
-
-    first-move-line (str " M 0 0 " squig-x-start " 0 ")
-    cp-jitter (fn [x] (+ (- (/ squig-width 4.0) (rand-int (/ squig-width 4.0)))) x)
-    mk-first-control-path (fn [x-start x-end] (format " C %f %f %f %f %f 0 " (cp-jitter x-start) (neg-cph) (cp-jitter x-end) (cph) x-end))
-    c-phrase-end (+ squig-width squig-x-start)
-    first-control-path (mk-first-control-path squig-x-start c-phrase-end)
-
-    s-starts (take-nth squig-width (range (+ squig-width c-phrase-end) squig-x-end))
-    s-phrases (apply str (map-indexed (fn [i x] (s-phrase x (if (= 0 (mod i 2)) (cph) (neg-cph)))) s-starts))
-    ]
-
-    (str first-move-line first-control-path s-phrases (s-phrase squig-x-end (cph)) " M " squig-x-end " 0 100 0")))
-
-; Creates an SVG element using a series of cubic bezier curves
-(defn squiggle-path-svg [p1 p2]
-  (svg/svg-path p1 p2 (squiggle-path-description) 100.0))
-
 ; Draws a puzzle-piece line for a given edge.
 (defn puzzleline [edge]
-  (squiggle-path-svg (nth edge 0) (nth edge 1)))
+  (squiggle/squiggle-path-svg (nth edge 0) (nth edge 1)))
 
 (defn whimsy_anchor_paths [points]
   (let [tree (kdtree/build-tree points)]
@@ -120,17 +90,7 @@
     cell-lines (map svg/polygon-by-polygon-svg cells) ; add this to see voronoi cells (SHOULD be the same as simplelines)
     pointstrings (map svg/point coords) ; add this to see seed points
     whimsy-anchors (whimsy_anchor_paths (points_from_edges edges))
-
-    ; TODO: draw puzzle lines extending from nearest neighbors to whimsy anchor points
-
     svgbody (concat puzzlelines WHIMSY_PATHS whimsy-anchors) ; this is what we're actually printing out
-
-    ; Variables below are only used for debugging
-    straight_line [[[500 500] [700 500]]]
-    straight_line_points[[500 500] [700 500]]
-    debug_line (map puzzleline straight_line)
-    debug_points (map svg/point straight_line_points)
-    debug_body (concat debug_line debug_points)]
-
+    ]
     (svg/svg svgbody max-coord max-coord)
   ))
