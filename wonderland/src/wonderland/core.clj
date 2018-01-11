@@ -37,6 +37,19 @@
     (format ellipse-string (x coord) (y coord) radius radius))
 )
 
+(def CATWHIMSY "
+  <path id=\"cat\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1\" stroke-miterlimit=\"10\" d=\"M55.571,141.777l55.54,0.994
+        c0.142-7.894-0.396-9.472-13.47-9.706c2.201-6.229,10.96-21.235,15.679-21.15c4.177,0.075,9.152,0.395,8.982,9.915
+        c-0.193,10.812,17.689,28.577,22.23,21.538c6.766-10.479-11.173-7.564-10.715-33.132c0.626-34.97,20.944-29.626,21.295-49.276
+        c0.176-9.83-2.514-11.206-2.388-18.234c0.167-9.286,8.34-8.601,6.885-16.331c-1.006-5.339-1.79-9.62-2.313-16.064
+        c-0.375-4.573-0.436-9.441-5.177-9.33c-5.573,0.13-7.862,9.897-16.535,10.445c-8.652,0.547-15.876-7.642-19.244-6.551
+        c-3.333,1.082-2.453,10.097-0.601,16.521c2.912,10.098,9.417,23.274-2.906,25.02c-12.323,1.746-33.492,3.334-49.089,23.213
+        c-15.597,19.878-15.46,43.54-21.557,50.747c-20.472,24.196-40.82,13.749-41.186,34.17c-0.164,9.146,15.213,16.005,17.724,13.1
+        c2.51-2.905-20.671-12.105,5.628-22.024C46.823,137.176,48.846,135.403,55.571,141.777z\"
+        transform=\"translate(320.5 316.5)\"
+        />
+  ")
+
 ; Coords should be a set.
 ; Returns a set of points which conflict with the clipping circle around the provided point.
 (defn disallowed_points [coords point radius]
@@ -59,8 +72,17 @@
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
 (def WHIMSIES (list 
-  (Whimsy. [400 400] 300 (point [400 400] :radius 100) (list [500 400] [300 400] [400 300] [400 500]))
-  (Whimsy. [700 800] 150 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
+  (Whimsy. [400 400] 250 CATWHIMSY (
+    list
+      [339.23 484.17] ; tail
+      [384.24 386.15] ; back
+      [436.84 321.39] ; left ear
+      [465.03 459.87] ; forepaw
+      [475.61 377.46] ; chest
+          ))
+
+  ; Circular whimsy
+  ; (Whimsy. [700 800] 150 (point [700 800] :radius 50) (list [700 750] [700 850] [650 800] [750 800]))
   ))
 
 (def WHIMSY_PATHS
