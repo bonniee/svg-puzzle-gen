@@ -1,4 +1,5 @@
 (ns puzzle.core
+  (:require [puzzle.strings :as strings])
   (:require [voronoi-diagram.core :as voronoi])
   (:require [clojure.set :as set])
   (:require [kdtree]))
@@ -24,31 +25,8 @@
 ; Draw an SVG ellipse element representing a point
 ; Expects a coord of form [x y]
 (defn point [coord & {:keys [radius] :or {radius 1}}]
-  (let [
-    ellipse-string "<ellipse
-      cx=\"%.2f\"
-      cy=\"%.2f\"
-      rx=\"%d\"
-      ry=\"%d\"
-      stroke=\"#fc8d62\"
-      stroke-width=\"1\"
-      fill=\"transparent\"
-    />"]
-    (format ellipse-string (x coord) (y coord) radius radius))
+  (format strings/ellipse-template (x coord) (y coord) radius radius)
 )
-
-(def CATWHIMSY "
-  <path id=\"cat\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1\" stroke-miterlimit=\"10\" d=\"M55.571,141.777l55.54,0.994
-        c0.142-7.894-0.396-9.472-13.47-9.706c2.201-6.229,10.96-21.235,15.679-21.15c4.177,0.075,9.152,0.395,8.982,9.915
-        c-0.193,10.812,17.689,28.577,22.23,21.538c6.766-10.479-11.173-7.564-10.715-33.132c0.626-34.97,20.944-29.626,21.295-49.276
-        c0.176-9.83-2.514-11.206-2.388-18.234c0.167-9.286,8.34-8.601,6.885-16.331c-1.006-5.339-1.79-9.62-2.313-16.064
-        c-0.375-4.573-0.436-9.441-5.177-9.33c-5.573,0.13-7.862,9.897-16.535,10.445c-8.652,0.547-15.876-7.642-19.244-6.551
-        c-3.333,1.082-2.453,10.097-0.601,16.521c2.912,10.098,9.417,23.274-2.906,25.02c-12.323,1.746-33.492,3.334-49.089,23.213
-        c-15.597,19.878-15.46,43.54-21.557,50.747c-20.472,24.196-40.82,13.749-41.186,34.17c-0.164,9.146,15.213,16.005,17.724,13.1
-        c2.51-2.905-20.671-12.105,5.628-22.024C46.823,137.176,48.846,135.403,55.571,141.777z\"
-        transform=\"translate(320.5 316.5)\"
-        />
-  ")
 
 ; Coords should be a set.
 ; Returns a set of points which conflict with the clipping circle around the provided point.
@@ -72,7 +50,7 @@
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
 (def WHIMSIES (list 
-  (Whimsy. [400 400] 250 CATWHIMSY (
+  (Whimsy. [400 400] 250 strings/cat-whimsy (
     list
       [339.23 484.17] ; tail
       [384.24 386.15] ; back
@@ -106,21 +84,13 @@
 
 ; Prefix for SVG file
 (defn svg-prefix [width height]
-  (let [prefix-string "<svg xmlns=\"http://www.w3.org/2000/svg\"
-  xmlns:xlink=\"http://www.w3.org/1999/xlink\"
-  width=\"%s\" height=\"%s\">"]
-    (format prefix-string width height)
-  )
-)
-
-; Suffix for SVG file
-(def svg-suffix "</svg>")
+  (format strings/svg-prefix-template width height))
 
 ; Create an SVG, suitable for file output.
 (defn svg [body]
   (println (svg-prefix max-coord max-coord))
   (println (apply str body))
-  (println svg-suffix))
+  (println strings/svg-suffix))
 
 
 
@@ -128,14 +98,12 @@
 ; Expects each point to be of the form [x y]
 (defn line [p1 p2 & {:keys [color] :or {color "black"}}]
   (let [
-    line-string "<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\"
-      stroke-width=\"2\" stroke=\"%s\"/>"
       x1 (x p1)
       y1 (y p1)
       x2 (x p2)
       y2 (y p2)
       ]
-      (format line-string x1 y1 x2 y2 color)
+      (format strings/line-template x1 y1 x2 y2 color)
       )
   )
 
@@ -144,17 +112,15 @@
 ; Mostly useless for puzzle-building purposes but kept here for debugging.
 (defn polygon-by-polygon-svg [points]
   (let [
-    polygon-string "<polygon fill=\"none\" stroke=\"black\" stroke-width=\"2\" points=\"%s\"/>"
     points-string (apply str (map (fn [p] (format "%.2f,%.2f " (x p) (y p))) points))
     ]
-    (format polygon-string points-string))
+    (format strings/polygon-template points-string))
   )
 
 ; Creates a string suitable for the "transform" argument of an SVG path element.
 ; Handles scaling, rotation, and translation.
-(defn transform-string
-  [x y angle line-length-ratio]
-  (format "translate(%f %f) rotate (%f 0 0) scale (%f 1)" x y angle line-length-ratio))
+(defn transform-string [x y angle line-length-ratio]
+  (format strings/transform-template x y angle line-length-ratio))
 
 ; Draw a path from 0,0 to 100, 0, with squiggles based on cubic bezier curves in the middle
 ; Produces a string suitable for the "d" (aka description) attribute of an SVG path
@@ -200,15 +166,11 @@
     midheight (rand-int yjitter)
     transformed-string (transform-string x1 y1 angle line-length-ratio)
     cph 20
-    path-template (squiggle-path-description)
+    path-d-attribute (squiggle-path-description)
     ; Scale by line-length in the x-direction,
     ; then rotate by $angle degrees around the (0, 0) point
-    path-string "<path
-                  d=\"%s\" stroke=\"black\" fill=\"transparent\"
-                  transform=\"%s\"/>
-                  "
     ]
-  (format path-string path-template transformed-string)
+  (format strings/path-template path-d-attribute transformed-string)
   ))
 
 ; Draws a puzzle-piece line for a given edge.
