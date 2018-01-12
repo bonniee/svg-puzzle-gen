@@ -66,6 +66,11 @@
               (s-path-phrase x-end (control-point-height) x-end 0)
               (m-path-phrase x-end 0 100 0))))
 
-; Creates an SVG element using a series of cubic bezier curves
-(defn squiggle-path-svg [p1 p2]
-  (svg-path p1 p2 (squiggle-path-d (pointdist p1 p2)) 100.0))
+(defn squiggle-path-svg
+  "Creates an SVG element using a series of cubic bezier curves"
+  [edge]
+  (println "squiggle path - edge - " edge)
+  (let [[p1 p2] edge]
+    (svg-path p1 p2 (squiggle-path-d (pointdist p1 p2)) 100.0)))
+
+
