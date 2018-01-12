@@ -69,7 +69,6 @@
 (defn squiggle-path-svg
   "Creates an SVG element using a series of cubic bezier curves"
   [edge]
-  (println "squiggle path - edge - " edge)
   (let [[p1 p2] edge]
     (svg-path p1 p2 (squiggle-path-d (pointdist p1 p2)) 100.0)))
 

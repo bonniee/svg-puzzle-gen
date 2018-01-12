@@ -37,4 +37,4 @@
     (svg/svg svgbody max-coord max-coord)
   ))
 
-(defn -main [] (puzzle base-coords whimsy/WHIMSIES))
+(defn -main [] (puzzle (whimsy/whimsy_coords base-coords whimsy/WHIMSIES) whimsy/WHIMSIES))
