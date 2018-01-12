@@ -14,7 +14,6 @@
 (def max-coord 1000)
 (def N (/ max-coord 100))
 
-
 ; For use with voronoi edges
 (defn points_from_edges [edges]
   (reduce concat
@@ -26,15 +25,18 @@
 
 (defn puzzle
   "Generates a puzzle"
-  [coords whimsies]
+  [base-coords whimsies]
   (let [
+    coords (whimsy/whimsy_coords base-coords whimsies)
     {:keys [points edges cells]} (voronoi/diagram coords)
-    puzzle-lines (map squiggle/squiggle-path-svg edges) ; draw puzzle lines based on voronoi edges
-    whimsy-anchors (whimsy/whimsy_anchor_paths (points_from_edges edges) whimsies)
-    whimsy-paths (whimsy/whimsy-paths whimsies)
-    svgbody (concat puzzle-lines whimsy-paths whimsy-anchors) ; this is what we're actually printing out
-    ]
+    
+    svgbody (concat
+      (map squiggle/squiggle-path-svg edges)
+      (whimsy/whimsy-paths whimsies)
+      (whimsy/whimsy_anchor_paths (points_from_edges edges) whimsies))]
+
     (svg/svg svgbody max-coord max-coord)
   ))
 
-(defn -main [] (puzzle (whimsy/whimsy_coords base-coords whimsy/WHIMSIES) whimsy/WHIMSIES))
+(defn -main [] (puzzle base-coords whimsy/WHIMSIES))
+
