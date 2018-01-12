@@ -1,14 +1,11 @@
-# wonderland
+# svg-puzzle-gen
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library for generating puzzles.
+
+<img src="./.presentation/11-cat-whimsy.png"/>
 
 ## Usage
 
-FIXME
-
-## License
-
-Copyright © 2018 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+```
+lein run > puzzle.svg
+```
