@@ -18,9 +18,10 @@
 (defn disallowed_points [coords point radius]
   (set (filter (fn [candidate] (> radius (pointdist candidate point))) coords)))
 
-; Removes all coordinates which include points conflicting with whimsy pieces.
-; Whimsies should be a collection of Whimsy
-(defn whimsy_disallowed_points [coords whimsies]
+(defn whimsy_disallowed_points
+  "Identifies coordinates which would conflict with whimsy pieces.
+  Whimsies should be a collection of Whimsy"
+  [coords whimsies]
   (reduce concat
     (map (fn [w] (disallowed_points coords (.-origin w) (.-radius w))) whimsies)))
 
@@ -35,6 +36,7 @@
 ; svgpath: for drawing it
 ; anchors: points that should be connected to the rest of the puzzle
 (defrecord Whimsy [origin radius svgpath anchors])
+
 (def WHIMSIES (list 
   (Whimsy. [400 400] 250 strings/cat-whimsy (
     list
@@ -62,11 +64,14 @@
     (concat (map (fn [w] (.-origin w)) WHIMSIES) ; TODO: is there shorthand for this?
     (set/difference base-coords (whimsy_disallowed_points base-coords WHIMSIES)))))
 
-; Draws a puzzle-piece line for a given edge.
-(defn puzzleline [edge]
+(defn puzzleline
+  "Draws a puzzle-piece line for a given edge"
+  [edge]
   (squiggle/squiggle-path-svg (nth edge 0) (nth edge 1)))
 
-(defn whimsy_anchor_paths [points]
+(defn whimsy_anchor_paths
+  "Draws puzzle-piece connections between the rest of the puzzle, and the anchor points on whimsy pieces"
+  [points]
   (let [tree (kdtree/build-tree points)]
     (flatten (map (
       fn [whimsy] (map (fn [anchor]
