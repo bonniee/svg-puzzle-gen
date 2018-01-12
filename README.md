@@ -10,5 +10,5 @@ lein run > puzzle.svg
 
 ## Examples
 
-<img src="./.presentation/11-cat-whimsy.png"/>
+<img src="./examples/presentation/11-cat-whimsy.png"/>
 
