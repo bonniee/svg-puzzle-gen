@@ -12,7 +12,11 @@
     S 526 100 628 0" stroke="black" fill="transparent"/> -->
 
 <!-- a bezier loop-de-loop, like an ugly sine wave. control points are directly above/below origins. -->
-    <path d="M 0 0 C 0 -100 50 -100 50 0 S 100 100 100 0" stroke="blue" fill="transparent" transform="translate(0 400)"/>
+
+    <path d="M 0 0 C 0 -100 50 -100 50 0 S 100 100 100 0"
+          stroke="blue"
+          fill="transparent"
+          transform="translate(0 400)"/>
 
 <!-- a bezier loop-de-loop with varying widths. control points directly above/below origins. -->
 <!-- first segment width: 50; then 25; then 50; then 100. y points at 0. -->
