@@ -1,0 +1,1 @@
+ pdf2laser -n "smallpuzzle" -O -f 100 -v 16 -V 100 

@@ -1,12 +1,13 @@
 
 (ns puzzle.squiggle
-  (:require [puzzle.svg :refer :all]))
+  (:require [puzzle.svg :refer :all])
+  (:require [puzzle.point :refer :all]))
 
 ; This file is for drawing a squiggle.
 
-(def x-start 10.0)
+(def x-start 20.0)
 
-(def x-end 90.0)
+(def x-end 80.0)
 
 (def dx (- x-end x-start))
 
@@ -25,7 +26,8 @@
 
 ; TODO play around with this
 (defn- control-point-x-jitter [x squig-width]
-  (jitter x (/ squig-width 2.0)))
+  x)
+  ; (jitter x (/ squig-width 2.0)))
 
 (defn- first-c-phrase [squig-width]
   (let [x-end (+ squig-width x-start)]
@@ -53,8 +55,10 @@
       (s-partitions squig-width))))
 
 ; Create the d attribute for a squiggle path
-(defn- squiggle-path-d []
-  (let [num-squigs 2
+(defn- squiggle-path-d [segment-length]
+  (let [
+      num-squigs (/ segment-length 30.0)
+    ; num-squigs (+ 2 (rand-int 4))
         squig-width (/ dx num-squigs)]
         (str  (m-path-phrase 0 0 x-start 0)
               (first-c-phrase squig-width)
@@ -64,4 +68,4 @@
 
 ; Creates an SVG element using a series of cubic bezier curves
 (defn squiggle-path-svg [p1 p2]
-  (svg-path p1 p2 (squiggle-path-d) 100.0))
+  (svg-path p1 p2 (squiggle-path-d (pointdist p1 p2)) 100.0))
