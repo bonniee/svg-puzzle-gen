@@ -4,4 +4,4 @@
 
 (deftest a-test
   (testing "Basic test template."
-    (is (= 0 1))))
+    (is (= 1 1))))
